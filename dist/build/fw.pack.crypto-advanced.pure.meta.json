@@ -1,0 +1,38 @@
+{
+  "description": "E2EE, PQC, KeePass interop.",
+  "modules": [
+    "sha224",
+    "sha384",
+    "sha512_224",
+    "sha512_256",
+    "sha3",
+    "blake2b",
+    "argon2",
+    "poly1305",
+    "chacha20",
+    "chacha20poly1305",
+    "ctr",
+    "cbc",
+    "cmac",
+    "kw",
+    "rsa",
+    "rsaKeygen",
+    "ml_kem",
+    "ml_dsa",
+    "slh_dsa",
+    "adf"
+  ],
+  "kind": "pack",
+  "name": "crypto-advanced",
+  "variant": "pure",
+  "bytes": {
+    "min": 105110,
+    "minGz": 36906,
+    "dev": 224807,
+    "devGz": 46546
+  },
+  "hashSha256": {
+    "min": "bc5878f7c8df2e3be58961ec32d63ed3dbca759e9e74736ec021f8d27f1b3854",
+    "dev": "f7d1e3b9e192c578861cf2411ca61e056e95b9274cfb089b072d4e9667937368"
+  }
+}

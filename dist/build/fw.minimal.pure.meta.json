@@ -1,0 +1,21 @@
+{
+  "description": "Core runtime only, zero modules.",
+  "modules": [],
+  "env": {
+    "DEV": false,
+    "LOG": true
+  },
+  "kind": "preset",
+  "name": "minimal",
+  "variant": "pure",
+  "bytes": {
+    "min": 11623,
+    "minGz": 4385,
+    "dev": 24414,
+    "devGz": 5780
+  },
+  "hashSha256": {
+    "min": "81cdab8a889f646ca55cd415da32e4e044631f273975fbddfbb2ef17017ebd45",
+    "dev": "2556d9e242bcba04fd044b0b41480a019ab54ad302c0c51b2197323c167132b2"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"poly1305.d.ts","sourceRoot":"","sources":["../../../../src/crypto/hash/poly1305.js"],"names":[],"mappings":";;;;;;;;;;IA4CI,6BAA6B;IAC7B,oBADc,WAAW,CAgFxB;;;;;;;;;UA7FS,MAAM;;;;SACN,CAAC,GAAG,EAAE,UAAU,EAAE,GAAG,EAAE,UAAU,KAAK,CAAC,UAAU,GAAC,KAAK,CAAC;;;;YAExD,CAAC,GAAG,EAAE,UAAU,EAAE,GAAG,EAAE,UAAU,EAAE,GAAG,EAAE,UAAU,KAAK,OAAO"}

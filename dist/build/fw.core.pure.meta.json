@@ -1,0 +1,29 @@
+{
+  "description": "Minimal glue required by nearly every fw module.",
+  "modules": [
+    "errors",
+    "eventBus",
+    "signal",
+    "valid",
+    "ui8",
+    "abort",
+    "clock"
+  ],
+  "env": {
+    "DEV": false,
+    "LOG": true
+  },
+  "kind": "preset",
+  "name": "core",
+  "variant": "pure",
+  "bytes": {
+    "min": 30837,
+    "minGz": 10679,
+    "dev": 65627,
+    "devGz": 13980
+  },
+  "hashSha256": {
+    "min": "5976d3c2432eff144e79486d842fa6bfdb7393c42a30ca18308d25be2e6d4069",
+    "dev": "7d74ee57cb0cc1f4e2ae40bb6a9bcfabdb881f331b854b31306a488ca973a3b6"
+  }
+}

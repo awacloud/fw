@@ -1,0 +1,21 @@
+{
+  "description": "Real-time transports.",
+  "modules": [
+    "ws",
+    "sse",
+    "webrtc"
+  ],
+  "kind": "pack",
+  "name": "realtime",
+  "variant": "pure",
+  "bytes": {
+    "min": 7701,
+    "minGz": 3106,
+    "dev": 17055,
+    "devGz": 4020
+  },
+  "hashSha256": {
+    "min": "5d604d5b53f5d6cd7612a589eeba1dfae524b3789922766d55bfcb4f40777f6f",
+    "dev": "07408a4820bad5d49874fc408ed67845201161b2242ae3aebc1e1fab5bc8f45a"
+  }
+}

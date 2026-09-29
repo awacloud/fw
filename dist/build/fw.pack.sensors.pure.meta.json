@@ -1,0 +1,21 @@
+{
+  "description": "Permission-invasive sensors.",
+  "modules": [
+    "geolocation",
+    "sensors",
+    "entropyCollector"
+  ],
+  "kind": "pack",
+  "name": "sensors",
+  "variant": "pure",
+  "bytes": {
+    "min": 5030,
+    "minGz": 1917,
+    "dev": 10344,
+    "devGz": 2478
+  },
+  "hashSha256": {
+    "min": "6442610857f63499d60a041cafc553c12931650fd294d8e190255d7789d86555",
+    "dev": "0f72a6254a3594f63a6bd67fc838aea9e7ebe8ae6e828ae52e04a37df53dc15e"
+  }
+}

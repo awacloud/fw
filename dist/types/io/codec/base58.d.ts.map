@@ -1,0 +1,1 @@
+{"version":3,"file":"base58.d.ts","sourceRoot":"","sources":["../../../../src/io/codec/base58.js"],"names":[],"mappings":";;;;;;;;;;IA8BI;;;;;;;;;OASG;IACH,oBAPa,SAAS,CAoIrB;;;eAjJS,CAAC,KAAK,EAAE,UAAU,GAAC,MAAM,EAAE,KAAK,MAAM;aACtC,CAAC,GAAG,EAAE,MAAM,KAAK,UAAU;UAC3B,CAAC,GAAG,EAAE,MAAM,KAAK,OAAO"}

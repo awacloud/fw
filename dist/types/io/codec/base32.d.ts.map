@@ -1,0 +1,1 @@
+{"version":3,"file":"base32.d.ts","sourceRoot":"","sources":["../../../../src/io/codec/base32.js"],"names":[],"mappings":";;;;;;;;;;IA6BI;;;;;;;;;OASG;IACH,oBAPa,SAAS,CAiHrB;;;eA9HS,CAAC,KAAK,EAAE,UAAU,GAAC,MAAM,EAAE,KAAK,MAAM;aACtC,CAAC,GAAG,EAAE,MAAM,KAAK,UAAU;UAC3B,CAAC,GAAG,EAAE,MAAM,KAAK,OAAO"}

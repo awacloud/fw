@@ -1,0 +1,20 @@
+{
+  "description": "Terminal / package-manager-grade text.",
+  "modules": [
+    "ansi",
+    "semver"
+  ],
+  "kind": "pack",
+  "name": "text-advanced",
+  "variant": "pure",
+  "bytes": {
+    "min": 6672,
+    "minGz": 2806,
+    "dev": 15351,
+    "devGz": 3863
+  },
+  "hashSha256": {
+    "min": "a39cde6ca0f8cc8b9cd237cbbc63850d625b1e91575b7a85f034095135f107ca",
+    "dev": "8be1ca0d7b6d90315ca93d5449d0335fe77b4e50ba297d5b521e163da82ed1d9"
+  }
+}

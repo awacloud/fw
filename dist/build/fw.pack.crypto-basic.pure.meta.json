@@ -1,0 +1,29 @@
+{
+  "description": "Auth / session-level crypto.",
+  "modules": [
+    "random",
+    "sha256",
+    "sha512",
+    "hmac",
+    "hkdf",
+    "pbkdf2",
+    "aes",
+    "gcm",
+    "aes_modes",
+    "pad",
+    "totp"
+  ],
+  "kind": "pack",
+  "name": "crypto-basic",
+  "variant": "pure",
+  "bytes": {
+    "min": 44111,
+    "minGz": 16793,
+    "dev": 96468,
+    "devGz": 21856
+  },
+  "hashSha256": {
+    "min": "2ea972b66899fa07d69c0581328ce1ac412e4a6739a67032898a854312b65f00",
+    "dev": "ba4fbc2e3eee4aa662835ff2b22ebd9c98bffd7a2a8bc097e89df3c8416a8522"
+  }
+}

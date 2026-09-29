@@ -1,0 +1,29 @@
+{
+  "description": "Heavy compression codecs — never in the main bundle.",
+  "modules": [
+    "brotli",
+    "brotliShared",
+    "brotliFrame",
+    "brotliDict",
+    "brotliDictWords",
+    "lz4",
+    "lz77",
+    "lzw",
+    "huffman",
+    "bitstream",
+    "zip"
+  ],
+  "kind": "pack",
+  "name": "compress-heavy",
+  "variant": "pure",
+  "bytes": {
+    "min": 88902,
+    "minGz": 32684,
+    "dev": 209157,
+    "devGz": 44252
+  },
+  "hashSha256": {
+    "min": "ecfbc4edf58f6936f9841a0ba0e1f7c9c5503c91d2c5d8822262c8801abb3f29",
+    "dev": "fecdc109685cf621abbb12f8d2e69ba64e44511479a08faf6d0ac2cc205dba1d"
+  }
+}

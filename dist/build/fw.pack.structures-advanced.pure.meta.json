@@ -1,0 +1,20 @@
+{
+  "description": "Specialised algorithms.",
+  "modules": [
+    "heap",
+    "btree"
+  ],
+  "kind": "pack",
+  "name": "structures-advanced",
+  "variant": "pure",
+  "bytes": {
+    "min": 6727,
+    "minGz": 2428,
+    "dev": 14254,
+    "devGz": 3181
+  },
+  "hashSha256": {
+    "min": "b1ed35359bf45475322264a4f3c9f4b3047719b1651b41ba634c058a1ad082ba",
+    "dev": "7a76e70a60be759a27f35a5a73111a6c514dee68e71a3e6580dcdeadb7acdbe9"
+  }
+}

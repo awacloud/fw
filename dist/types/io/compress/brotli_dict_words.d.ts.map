@@ -1,0 +1,1 @@
+{"version":3,"file":"brotli_dict_words.d.ts","sourceRoot":"","sources":["../../../../src/io/compress/brotli_dict_words.js"],"names":[],"mappings":";;;;;;;;;;IAoFI,oCAAoC;IACpC,oBADc,kBAAkB,CAuE/B;;;;;;;;;UArFS,UAAU,GAAC,IAAI;;;;cACf,OAAO;;;;mBACP,MAAM;;;;oBACN,MAAM;;;;aACN,CAAC,GAAG,EAAE,UAAU,KAAK,UAAU;;;;UAC/B,CAAC,GAAG,EAAE,MAAM,KAAK,OAAO,CAAC,UAAU,CAAC"}

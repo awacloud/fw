@@ -1,0 +1,1 @@
+{"version":3,"file":"blake2b.d.ts","sourceRoot":"","sources":["../../../../src/crypto/wasm/blake2b.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;IAwEI;;;OAGG;IACH,8BAHW,OAAO,cAAc,EAAE,cAAc,GACnC,cAAc,CAyI1B;;;;;;;;;aApKS,MAAM;;;;UACN,UAAU;;;;WACV,UAAU;;;;eACV,UAAU;;;;;;;;;iBAMV,MAAM,OAAO;;;;;UAEb,CAAC,IAAI,EAAE,UAAU,EAAE,IAAI,CAAC,EAAE,eAAe,KAAK,OAAO,CAAC,UAAU,GAAC,KAAK,CAAC"}

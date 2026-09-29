@@ -1,0 +1,29 @@
+{
+  "description": "Passkeys, signatures, key formats.",
+  "modules": [
+    "webauthn",
+    "jws",
+    "keyformat",
+    "ed25519",
+    "x25519",
+    "ecc",
+    "pem",
+    "asn1",
+    "asn1Oid",
+    "bitArray",
+    "bn"
+  ],
+  "kind": "pack",
+  "name": "crypto-identity",
+  "variant": "pure",
+  "bytes": {
+    "min": 94022,
+    "minGz": 30760,
+    "dev": 173770,
+    "devGz": 39072
+  },
+  "hashSha256": {
+    "min": "0b7a450168521d9510fe310db13bf2956adfcd4f331385eedc26c4c347694025",
+    "dev": "eb91a84526f55b1d4cf2cb35766a3541ad05a48a16d8935670a65e90545e332b"
+  }
+}
