@@ -4,6 +4,7 @@
     "webauthn",
     "jws",
     "keyformat",
+    "x509",
     "ed25519",
     "x25519",
     "ecc",
@@ -17,13 +18,13 @@
   "name": "crypto-identity",
   "variant": "pure",
   "bytes": {
-    "min": 94022,
-    "minGz": 30760,
-    "dev": 173770,
-    "devGz": 39072
+    "min": 141469,
+    "minGz": 44757,
+    "dev": 263022,
+    "devGz": 55241
   },
   "hashSha256": {
-    "min": "0b7a450168521d9510fe310db13bf2956adfcd4f331385eedc26c4c347694025",
-    "dev": "eb91a84526f55b1d4cf2cb35766a3541ad05a48a16d8935670a65e90545e332b"
+    "min": "79629abe55822b11028fd220167746a67eeb56f446fc7f4c5a3cf67fdc2ef16b",
+    "dev": "1f435a758e52d6ab1c9ff5f2f38a66dd2d7085b6c64ab532e1f9831822185c6b"
   }
 }

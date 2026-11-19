@@ -195,6 +195,39 @@ export type FromHTMLOptions = {
      * which ids are minted, so a cached entry would violate the contract.
      */
     reserveIds?: Iterable<string>;
+    /**
+     * - A cache from `createCache`, shared
+     * by any number of parser instances, used INSTEAD of this instance's own.
+     * It is transparent: a hit returns exactly what a fresh parse on this
+     * instance would, auto ids re-minted by this instance's counter.
+     */
+    cache?: SharedParseCache;
+};
+/**
+ * A parse cache shared across parser instances (`parser.createCache`). The
+ * underscored members are the parser's internal protocol.
+ */
+export type SharedParseCache = {
+    /**
+     * - Entries held.
+     */
+    size: () => number;
+    /**
+     * - Drop every entry and reset the counters.
+     */
+    clear: () => void;
+    /**
+     * - Counters.
+     */
+    stats: () => {
+        hits: number;
+        misses: number;
+        evictions: number;
+        size: number;
+        max: number;
+    };
+    _get: (key: string) => (object | undefined);
+    _set: (key: string, entry: object) => void;
 };
 /**
  * Public surface returned by `parser.factory()`.
@@ -212,5 +245,11 @@ export type ParserAPI = {
      * - Manual cache controls.
      */
     cache: ParserCache;
+    /**
+     * - A cache several instances share through `fromHTML(html, { cache })`.
+     */
+    createCache: (opts?: {
+        max?: number;
+    }) => SharedParseCache;
 };
 //# sourceMappingURL=parser.d.ts.map

@@ -130,13 +130,6 @@ export type MlKemInstance = {
      * Decapsulate; 32-byte shared secret.
      */
     decapsulate: (cipherText: Uint8Array, secretKey: Uint8Array) => (Uint8Array | false);
-    /**
-     * Validation helpers.
-     */
-    _internal: {
-        isValidEncapsulationKey: (ek: Uint8Array) => boolean;
-        isValidDecapsulationKey: (dk: Uint8Array) => boolean;
-    };
 };
 /**
  * Public API returned by `ml_kem.factory()`.
@@ -154,41 +147,5 @@ export type MlKemAPI = {
      * ML-KEM-1024 instance.
      */
     ml_kem1024: MlKemInstance;
-    /**
-     * Test-only NTT.
-     */
-    _ntt: (f: Uint16Array) => Uint16Array;
-    /**
-     * Test-only inverse NTT.
-     */
-    _nttInv: (f: Uint16Array) => Uint16Array;
-    /**
-     * Test-only pointwise product.
-     */
-    _multiplyNTTs: (out: Uint16Array, a: Uint16Array, b: Uint16Array) => Uint16Array;
-    /**
-     * Test-only CBD sampler.
-     */
-    _sampleCBD: (prfBytes: Uint8Array, eta: number) => Uint16Array;
-    /**
-     * Test-only NTT sampler.
-     */
-    _sampleNTT: (rho: Uint8Array, j: number, i: number) => Uint16Array;
-    /**
-     * Test-only encoder.
-     */
-    _byteEncode: (poly: Uint16Array, d: number) => Uint8Array;
-    /**
-     * Test-only decoder.
-     */
-    _byteDecode: (bytes: Uint8Array, d: number) => Uint16Array;
-    /**
-     * Test-only compress.
-     */
-    _compress: (x: number, d: number) => number;
-    /**
-     * Test-only decompress.
-     */
-    _decompress: (y: number, d: number) => number;
 };
 //# sourceMappingURL=ml_kem.d.ts.map

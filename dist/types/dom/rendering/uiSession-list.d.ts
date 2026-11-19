@@ -36,14 +36,20 @@ export namespace uiSessionList {
         name: string;
         type: string;
         dependencies: string[];
-        deps: {
+        deps: ({
             name: string;
             version: string;
             type: string;
             dependencies: any[];
             factory(): SecPolicyAPI;
-        }[];
-        factory(secPolicy: any): TemplateAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): StyleSheetAPI;
+        })[];
+        factory(secPolicy: any, styleSheet: any): TemplateAPI;
     })[];
     /** @returns {UiSessionListAPI} */
     function factory(template: any, render: any, dom: any): UiSessionListAPI;

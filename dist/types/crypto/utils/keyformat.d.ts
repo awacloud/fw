@@ -41,6 +41,26 @@ export type EcSpkiDecoded = {
     point: Uint8Array;
 };
 /**
+ * Unsigned big-endian integers (the shape `pkc/rsa.js` takes).
+ */
+export type RsaPublicKeyParts = {
+    n: Uint8Array;
+    e: Uint8Array;
+};
+/**
+ * A two-prime RSA private key, every integer unsigned big-endian.
+ */
+export type RsaPrivateKeyParts = {
+    n: Uint8Array;
+    e: Uint8Array;
+    d: Uint8Array;
+    p: Uint8Array;
+    q: Uint8Array;
+    dp: Uint8Array;
+    dq: Uint8Array;
+    qInv: Uint8Array;
+};
+/**
  * Public shape returned by `keyformat.factory()`.
  */
 export type KeyformatAPI = {
@@ -96,5 +116,37 @@ export type KeyformatAPI = {
      * Decode an EC SPKI.
      */
     decodeSpkiEc: (der: Uint8Array) => (EcSpkiDecoded | false);
+    /**
+     * Encode a PKCS#1 `RSAPublicKey`.
+     */
+    encodeRsaPublicKey: (key: RsaPublicKeyParts) => (Uint8Array | false);
+    /**
+     * Decode a PKCS#1 `RSAPublicKey`.
+     */
+    decodeRsaPublicKey: (der: Uint8Array) => (RsaPublicKeyParts | false);
+    /**
+     * Encode a PKCS#1 `RSAPrivateKey` (version 0).
+     */
+    encodeRsaPrivateKey: (key: RsaPrivateKeyParts) => (Uint8Array | false);
+    /**
+     * Decode a two-prime PKCS#1 `RSAPrivateKey`.
+     */
+    decodeRsaPrivateKey: (der: Uint8Array) => (RsaPrivateKeyParts | false);
+    /**
+     * Wrap an RSA public key as SPKI.
+     */
+    encodeSpkiRsa: (key: RsaPublicKeyParts) => (Uint8Array | false);
+    /**
+     * Decode an RSA SPKI.
+     */
+    decodeSpkiRsa: (der: Uint8Array) => (RsaPublicKeyParts | false);
+    /**
+     * Wrap an RSA private key as PKCS#8.
+     */
+    encodePkcs8Rsa: (key: RsaPrivateKeyParts) => (Uint8Array | false);
+    /**
+     * Decode an RSA PKCS#8 private key.
+     */
+    decodePkcs8Rsa: (der: Uint8Array) => (RsaPrivateKeyParts | false);
 };
 //# sourceMappingURL=keyformat.d.ts.map

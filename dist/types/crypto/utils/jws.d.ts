@@ -122,10 +122,10 @@ export type JwsAPI = {
      */
     sign: (payload: Uint8Array, alg: string, key: Uint8Array, extraHeader?: any) => (string | false);
     /**
-     * Verify a compact JWS.
+     * Verify a compact JWS (`expectedAlg` required).
      */
-    verify: (token: string, key: Uint8Array, opts?: {
-        expectedAlg?: string | string[];
+    verify: (token: string, key: Uint8Array, opts: {
+        expectedAlg: string | string[];
         expectedTyp?: string;
     }) => ({
         header: any;
@@ -137,23 +137,15 @@ export type JwsAPI = {
      */
     signJwt: (claims: any, alg: string, key: Uint8Array) => (string | false);
     /**
-     * Verify a JWT and parse its claims.
+     * Verify a JWT and parse its claims (`expectedAlg` required).
      */
-    verifyJwt: (token: string, key: Uint8Array, opts?: {
-        expectedAlg?: string | string[];
+    verifyJwt: (token: string, key: Uint8Array, opts: {
+        expectedAlg: string | string[];
         expectedTyp?: string;
     }) => ({
         header: any;
         payload: Uint8Array;
         claims?: any;
     } | false);
-    /**
-     * base64url (no padding) encode.
-     */
-    _b64uEnc: (bytes: Uint8Array) => string;
-    /**
-     * base64url (no padding) decode.
-     */
-    _b64uDec: (s: string) => (Uint8Array | false);
 };
 //# sourceMappingURL=jws.d.ts.map

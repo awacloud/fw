@@ -35,9 +35,5 @@ export type WebcryptoDigestAPI = {
      * SHA-512 shorthand.
      */
     sha512: (data: Uint8Array) => Promise<Uint8Array | false>;
-    /**
-     *   SHA-1 shorthand — emits a deprecation warning; use SHA-256+ for new code.
-     */
-    sha1: (data: Uint8Array) => Promise<Uint8Array | false>;
 };
 //# sourceMappingURL=digest.d.ts.map

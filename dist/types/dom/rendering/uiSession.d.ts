@@ -59,14 +59,20 @@ export namespace uiSession {
             name: string;
             type: string;
             dependencies: string[];
-            deps: {
+            deps: ({
                 name: string;
                 version: string;
                 type: string;
                 dependencies: any[];
                 factory(): SecPolicyAPI;
-            }[];
-            factory(secPolicy: any): TemplateAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): StyleSheetAPI;
+            })[];
+            factory(secPolicy: any, styleSheet: any): TemplateAPI;
         })[];
         factory(template: any, render: any, parser: any, dom: any, events: any): UiSessionCoreAPI;
     } | {
@@ -126,14 +132,20 @@ export namespace uiSession {
             name: string;
             type: string;
             dependencies: string[];
-            deps: {
+            deps: ({
                 name: string;
                 version: string;
                 type: string;
                 dependencies: any[];
                 factory(): SecPolicyAPI;
-            }[];
-            factory(secPolicy: any): TemplateAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): StyleSheetAPI;
+            })[];
+            factory(secPolicy: any, styleSheet: any): TemplateAPI;
         })[];
         factory(template: any, render: any, dom: any): UiSessionListAPI;
     })[];

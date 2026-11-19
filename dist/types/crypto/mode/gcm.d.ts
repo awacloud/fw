@@ -75,14 +75,5 @@ export type GcmAPI = {
     nonceTracker: (prf: {
         encrypt: Function;
     }) => GcmNonceTracker;
-    /**
-     * Internal primitives (KAT tests only).
-     */
-    _internal: {
-        ghash: (H: number[], data: number[]) => number[];
-        gctr: (prf: {
-            encrypt: Function;
-        }, icb: number[], data: number[]) => number[];
-    };
 };
 //# sourceMappingURL=gcm.d.ts.map

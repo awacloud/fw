@@ -147,29 +147,5 @@ export type RsaAPI = {
      * RSASSA-PSS verify.
      */
     pssVerify: (pub: RsaPublicKey, msg: Uint8Array, sig: Uint8Array, hashMod: object, sLen?: number) => boolean;
-    /**
-     * Deprecated; always rejects.
-     */
-    pkcs1v15Sign: () => false;
-    /**
-     * Deprecated; always rejects.
-     */
-    pkcs1v15Verify: () => false;
-    /**
-     * Deprecated/unsafe; always rejects.
-     */
-    pkcs1v15Encrypt: () => false;
-    /**
-     * Deprecated/unsafe; always rejects.
-     */
-    pkcs1v15Decrypt: () => false;
-    /**
-     * KAT-test-only primitives.
-     */
-    _internal: {
-        rsaep: Function;
-        rsadp: Function;
-        mgf1: Function;
-    };
 };
 //# sourceMappingURL=rsa.d.ts.map

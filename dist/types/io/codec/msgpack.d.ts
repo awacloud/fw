@@ -30,6 +30,7 @@ export type MsgpackAPI = {
     encode: (value: unknown) => Uint8Array;
     decode: (bytes: Uint8Array, options?: {
         useMap?: boolean;
+        maxDepth?: number;
     }) => unknown;
     Ext: new (type: number, data: Uint8Array) => MsgpackExt;
 };

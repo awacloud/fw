@@ -9,13 +9,13 @@
   "name": "minimal",
   "variant": "pure",
   "bytes": {
-    "min": 11623,
-    "minGz": 4385,
-    "dev": 24414,
-    "devGz": 5780
+    "min": 14386,
+    "minGz": 5340,
+    "dev": 29226,
+    "devGz": 6928
   },
   "hashSha256": {
-    "min": "81cdab8a889f646ca55cd415da32e4e044631f273975fbddfbb2ef17017ebd45",
-    "dev": "2556d9e242bcba04fd044b0b41480a019ab54ad302c0c51b2197323c167132b2"
+    "min": "a922f59579cd84f591b2e67c3b2c67b947e2a446f5a24b61f3d78304b1859fb6",
+    "dev": "aa8f37c38263c4450a380a72caf53c7bcfe11174ddd2fe1a15e22e03e6d29f09"
   }
 }

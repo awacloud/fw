@@ -69,7 +69,7 @@ export type Sha384Hasher = {
     _block: (words: ArrayLike<number>) => void;
 };
 /**
- * Object returned by `sha384.factory()` (delegates to `sha512._internal.makeSha`).
+ * Object returned by `sha384.factory()` (delegates to the `makeSha` of sha512's internal slot).
  */
 export type Sha384API = {
     /**

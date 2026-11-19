@@ -361,7 +361,31 @@ export type HybridSignVariant = {
     /**
      *   Composite verify (AND of both components); `false` on any invalid input.
      */
-    verify: (publicKey: Uint8Array, message: Uint8Array, signature: Uint8Array, ctx?: Uint8Array) => boolean;
+    verify: (publicKey: Uint8Array, signature: Uint8Array, message: Uint8Array, ctx?: Uint8Array) => boolean;
+    /**
+     *   Build this variant's public key, secret key or signature container from
+     *   its two components; `false` on a wrong length or form.
+     */
+    fromComponents: (kind: CompositeKind, parts: CompositeParts) => (Uint8Array | false);
+    /**
+     *   Split a container into its two components (copies); `false` when it does
+     *   not decode.
+     */
+    toComponents: (kind: CompositeKind, bytes: Uint8Array) => (CompositeParts | false);
+};
+/**
+ * Which container `fromComponents` / `toComponents` handle.
+ */
+export type CompositeKind = "publicKey" | "secretKey" | "signature";
+/**
+ * The two components of a composite container: `pq` = the ML-DSA-65 bytes,
+ * `trad` = the traditional component — Ed25519 (public key 32, secret key 64 =
+ * seed || public key, signature 64) or ECDSA-P256 (public key SEC1
+ * uncompressed 65 bytes, secret key the 32-byte scalar, signature DER).
+ */
+export type CompositeParts = {
+    pq: Uint8Array;
+    trad: Uint8Array;
 };
 /**
  * Public surface of `hybridSign.factory(...)`.
@@ -375,9 +399,5 @@ export type HybridSignApi = {
      * ML-DSA-65 ∧ ECDSA-P-256.
      */
     mldsa65_ecdsaP256: HybridSignVariant;
-    /**
-     * Test-only escape hatch.
-     */
-    _internal: object;
 };
 //# sourceMappingURL=hybridSign.d.ts.map

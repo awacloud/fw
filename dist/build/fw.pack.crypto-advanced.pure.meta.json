@@ -26,13 +26,13 @@
   "name": "crypto-advanced",
   "variant": "pure",
   "bytes": {
-    "min": 105110,
-    "minGz": 36906,
-    "dev": 224807,
-    "devGz": 46546
+    "min": 127623,
+    "minGz": 42914,
+    "dev": 274737,
+    "devGz": 53487
   },
   "hashSha256": {
-    "min": "bc5878f7c8df2e3be58961ec32d63ed3dbca759e9e74736ec021f8d27f1b3854",
-    "dev": "f7d1e3b9e192c578861cf2411ca61e056e95b9274cfb089b072d4e9667937368"
+    "min": "00eaaaf49fde0b3ca3ccdbf01d8a5a7af190f4788177688f761bb818cafc7725",
+    "dev": "e91b591dbf3009249df8e1d39ee8d40abfa3ea85718799893de056e21aedfe00"
   }
 }

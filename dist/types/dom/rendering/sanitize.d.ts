@@ -44,5 +44,9 @@ export type SanitizeOptions = {
     allowedAttributes?: Record<string, Set<string>>;
     urlSchemes?: string[];
     dropDangerousContent?: boolean;
+    /**
+     * - keep `data:image/*` on `<img src>` only.
+     */
+    allowDataImage?: boolean;
 };
 //# sourceMappingURL=sanitize.d.ts.map

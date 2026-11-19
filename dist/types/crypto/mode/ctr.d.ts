@@ -35,12 +35,6 @@ export type CtrAPI = {
         encrypt: Function;
     }, ciphertext: number[], iv: number[]) => (number[] | false);
     /**
-     * Internal CTR core.
-     */
-    _calculate: (prf: {
-        encrypt: Function;
-    }, data: number[], iv: number[]) => (number[] | false);
-    /**
      * Advance a 16-byte counter by ⌊pos/16⌋ blocks.
      */
     ui8_increase: (ui8a: (Uint8Array | number[]), pos: number) => (Uint8Array | number[]);

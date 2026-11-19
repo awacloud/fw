@@ -23,6 +23,7 @@ export type LzwAPI = {
         maxBits?: number;
         bigEndian?: boolean;
         useClearEnd?: boolean;
+        earlyChange?: boolean;
     }) => Uint8Array;
     /**
      * Decompress LZW codes back to the original bytes.
@@ -32,6 +33,7 @@ export type LzwAPI = {
         maxBits?: number;
         bigEndian?: boolean;
         useClearEnd?: boolean;
+        earlyChange?: boolean;
     }) => Uint8Array;
 };
 //# sourceMappingURL=lzw.d.ts.map

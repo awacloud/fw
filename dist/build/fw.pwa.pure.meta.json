@@ -87,6 +87,7 @@
     "processRPC",
     "dnd",
     "media",
+    "sound",
     "serviceWorker",
     "cache",
     "backgroundSync",
@@ -115,13 +116,13 @@
   "name": "pwa",
   "variant": "pure",
   "bytes": {
-    "min": 373508,
-    "minGz": 130007,
-    "dev": 766430,
-    "devGz": 167221
+    "min": 412522,
+    "minGz": 140786,
+    "dev": 842463,
+    "devGz": 180598
   },
   "hashSha256": {
-    "min": "0c9e70c2e8045e99efb126885636b9cd8bfa2a0e718c75c5ca0c90716ddfc7da",
-    "dev": "3b805fee538e1bce3e84eee67c7720c4c5a4f5e031ee7e7107aca577e54a87ea"
+    "min": "c33827d9ed44cc38774b18f4fb4a78d8cda2abab9f7436087fad776214a617ba",
+    "dev": "2cd8c5961dd733262d3229f84aaf023da90bd9d4c9e3482792f9930cb54257be"
   }
 }

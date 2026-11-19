@@ -51,16 +51,6 @@ export type Ed25519KeyPair = {
     privateKey: Uint8Array;
 };
 /**
- * Ed448 explicit-reject stub group (NOT-IMPLEMENTED guards).
- */
-export type Ed25519Ed448Reject = {
-    keyPair: () => false;
-    sign: () => false;
-    verify: () => false;
-    signPh: () => false;
-    verifyPh: () => false;
-};
-/**
  * Public API returned by `ed25519.factory()`.
  */
 export type Ed25519API = {
@@ -73,9 +63,9 @@ export type Ed25519API = {
      */
     sign: (privateKey: Uint8Array, message: Uint8Array) => (Uint8Array | false);
     /**
-     * Pure Ed25519 verify.
+     * Pure Ed25519 verify (the fw order: key, signature, message).
      */
-    verify: (publicKey: Uint8Array, message: Uint8Array, signature: Uint8Array) => boolean;
+    verify: (publicKey: Uint8Array, signature: Uint8Array, message: Uint8Array) => boolean;
     /**
      * Ed25519ph (preHash) sign.
      */
@@ -83,7 +73,7 @@ export type Ed25519API = {
     /**
      * Ed25519ph verify.
      */
-    verifyPh: (publicKey: Uint8Array, message: Uint8Array, signature: Uint8Array, context?: Uint8Array) => boolean;
+    verifyPh: (publicKey: Uint8Array, signature: Uint8Array, message: Uint8Array, context?: Uint8Array) => boolean;
     /**
      * Ed25519ctx sign.
      */
@@ -91,17 +81,6 @@ export type Ed25519API = {
     /**
      * Ed25519ctx verify.
      */
-    verifyCtx: (publicKey: Uint8Array, message: Uint8Array, signature: Uint8Array, context: Uint8Array) => boolean;
-    /**
-     * Ed448 explicit-reject stubs.
-     */
-    ed448: Ed25519Ed448Reject;
-    /**
-     * Test-only escape hatch.
-     */
-    _internal: {
-        isValidPublicKey: (pk: Uint8Array) => boolean;
-        dom2: (F: number, ctx: (Uint8Array | null)) => (Uint8Array | false);
-    };
+    verifyCtx: (publicKey: Uint8Array, signature: Uint8Array, message: Uint8Array, context: Uint8Array) => boolean;
 };
 //# sourceMappingURL=ed25519.d.ts.map

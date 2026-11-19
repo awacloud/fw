@@ -70,6 +70,14 @@ export type InflateStreamInstance = {
      * Push a chunk of compressed data.
      */
     push: (chunk: Uint8Array, final?: boolean) => void;
+    /**
+     * `true` once the final block has been decoded.
+     */
+    ended: boolean;
+    /**
+     * The input pushed after the end of the stream (`null` before it).
+     */
+    rest: () => (Uint8Array | null);
 };
 /**
  * Constructor for `InflateStream`.
@@ -80,7 +88,12 @@ export type InflateStreamCtor = new (opts?: object | ((chunk: Uint8Array, isFina
  */
 export type DeflateApi = {
     deflateSync: (data: Uint8Array, opts?: object) => Uint8Array;
-    inflateSync: (data: Uint8Array, opts?: object) => Uint8Array;
+    inflateSync: (data: Uint8Array, opts?: {
+        out?: Uint8Array;
+        dictionary?: Uint8Array;
+        maxOutput?: number;
+        onEnd?: (byteLength: number) => void;
+    }) => Uint8Array;
     deflate: (data: Uint8Array, opts?: object) => Promise<Uint8Array>;
     inflate: (data: Uint8Array, opts?: object) => Promise<Uint8Array>;
     DeflateStream: DeflateStreamCtor;

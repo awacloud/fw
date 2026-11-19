@@ -182,35 +182,25 @@ export type SlhDsaInstance = {
         secretKey: Uint8Array;
     } | false);
     /**
-     * Pure SLH-DSA sign.
+     * Pure SLH-DSA sign (the fw order: key, message).
      */
-    sign: (msg: Uint8Array, sk: Uint8Array, opts?: SlhDsaSignOpts) => (Uint8Array | false);
+    sign: (sk: Uint8Array, msg: Uint8Array, opts?: SlhDsaSignOpts) => (Uint8Array | false);
     /**
-     * Pure SLH-DSA verify.
+     * Pure SLH-DSA verify (the fw order: key, signature, message).
      */
-    verify: (sig: Uint8Array, msg: Uint8Array, publicKey: Uint8Array, opts?: SlhDsaSignOpts) => boolean;
+    verify: (publicKey: Uint8Array, sig: Uint8Array, msg: Uint8Array, opts?: SlhDsaSignOpts) => boolean;
     /**
      * HashSLH-DSA sign.
      */
-    signPh: (msg: Uint8Array, sk: Uint8Array, hashAlg: string, hashMod: ({
+    signPh: (sk: Uint8Array, msg: Uint8Array, hashAlg: string, hashMod: ({
         hash: Function;
     } | Function | null), opts?: SlhDsaSignOpts) => (Uint8Array | false);
     /**
      * HashSLH-DSA verify.
      */
-    verifyPh: (sig: Uint8Array, msg: Uint8Array, publicKey: Uint8Array, hashAlg: string, hashMod: ({
+    verifyPh: (publicKey: Uint8Array, sig: Uint8Array, msg: Uint8Array, hashAlg: string, hashMod: ({
         hash: Function;
     } | Function | null), opts?: SlhDsaSignOpts) => boolean;
-    /**
-     * Test-only escape hatches.
-     */
-    _internal: {
-        signInternal: Function;
-        verifyInternal: Function;
-        wrapMessage: Function;
-        wrapMessageHash: Function;
-        computePh: Function;
-    };
 };
 /**
  * Public API returned by `slh_dsa.factory()` - the 12 SLH-DSA signers.

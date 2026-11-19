@@ -13,11 +13,12 @@
  * sync wasm constructors, harden intrinsics) target pure-JS intrinsics and
  * therefore run in ANY realm — main thread, Worker, or SSR. The DOM step
  * (compose `base.js` DOM/XSS hardening) runs only in a browser realm (`window`
- * + `document` present); `base.js` is imported lazily and its `applyBase()` is
- * called explicitly there, so a non-browser realm never loads the DOM layer.
- * That step is inherently asynchronous (dynamic `import`), exactly as before —
- * the DOM hardening lands on a later microtask, while `lockdown()` itself stays
- * synchronous and returns once the intrinsic tier is complete.
+ * + `document` present), synchronously, BEFORE the intrinsics are frozen:
+ * base installs wrappers on `Math`, `JSON`, `Date` and the DOM prototypes,
+ * which a frozen namespace would refuse, and the freeze then covers those
+ * wrappers too. `base.js` is an explicit-call module, so importing it is inert
+ * in a non-browser realm, where `applyBase()` is never called. When
+ * `lockdown()` returns, both tiers are in force.
  *
  * @param {object} [options] reserved for future opts (currently unused)
  * @returns {void}

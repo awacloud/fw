@@ -8,7 +8,7 @@ export namespace themeTokens {
     let version: string;
     let type: string;
     let dependencies: string[];
-    let deps: {
+    let deps: ({
         name: string;
         type: string;
         dependencies: string[];
@@ -20,12 +20,18 @@ export namespace themeTokens {
             factory(): SecPolicyAPI;
         }[];
         factory(secPolicy: any): DomAPI;
-    }[];
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): StyleSheetAPI;
+    })[];
     /**
      * @param {Object} dom - The fw `dom` module instance.
      * @returns {ThemeTokensAPI}
      */
-    function factory(dom: any): ThemeTokensAPI;
+    function factory(dom: any, styleSheet: any): ThemeTokensAPI;
 }
 export type ThemeInstance = {
     define: (arg0: Record<string, string | number | any>) => void;

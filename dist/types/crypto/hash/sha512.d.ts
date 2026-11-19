@@ -50,9 +50,9 @@ export type Sha512Hasher = {
      */
     reset: () => Sha512Hasher;
     /**
-     * Absorb a bitArray or UTF-8 string; returns `this`, or `false` on > 2^53-1 bit overflow.
+     * Absorb a bitArray, a UTF-8 string or bytes (`Uint8Array`, hashed as its bytes); returns `this`, or `false` on > 2^53-1 bit overflow.
      */
-    update: (data: number[] | string) => (Sha512Hasher | false);
+    update: (data: number[] | string | Uint8Array) => (Sha512Hasher | false);
     /**
      * Pad and emit the digest as a bitArray (truncated to `outWords`).
      */
@@ -71,17 +71,8 @@ export type Sha512API = {
      */
     fn: new (hash?: Sha512Hasher) => Sha512Hasher;
     /**
-     * One-shot hash; returns the digest as a bitArray.
+     * One-shot hash of a bitArray, a UTF-8 string or bytes; returns the digest as a bitArray.
      */
-    hash: (data: number[] | string) => number[];
-    /**
-     * Escape hatch used by sha384/sha512_224/sha512_256 to build truncated variants.
-     */
-    _internal: {
-        makeSha: (init: number[], outWords: number) => {
-            fn: Function;
-            hash: Function;
-        };
-    };
+    hash: (data: number[] | string | Uint8Array) => number[];
 };
 //# sourceMappingURL=sha512.d.ts.map

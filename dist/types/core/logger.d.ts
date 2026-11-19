@@ -27,6 +27,15 @@ export type LoggerAPI = {
     clear: () => void;
     __push?: (arg0: LogEntry) => void;
     subscribe: (arg0: Function) => Function;
+    /**
+     * Opt out of the takeover's
+     * printing policy: with `native(true)` every `console` call of the realm
+     * prints as the native console does (in production too, without the
+     * appended stack) and is still recorded; `native(false)` restores the
+     * policy (printed only in dev). Returns `false` when the realm's console
+     * is not an fw console (locked by another script), `true` otherwise.
+     */
+    native: (arg0: boolean | undefined) => boolean;
 };
 export namespace logger {
     export { main };
@@ -46,14 +55,24 @@ export namespace logger {
  * @property {function(): void} clear
  * @property {function(LogEntry): void} [__push]
  * @property {function(function): function} subscribe
+ * @property {function(boolean=): boolean} native Opt out of the takeover's
+ *   printing policy: with `native(true)` every `console` call of the realm
+ *   prints as the native console does (in production too, without the
+ *   appended stack) and is still recorded; `native(false)` restores the
+ *   policy (printed only in dev). Returns `false` when the realm's console
+ *   is not an fw console (locked by another script), `true` otherwise.
  */
 /**
  * Create a lightweight in-memory logger and optionally proxy to the real console.
  * Note: In a browser-shaped realm (`window` defined) this replaces
- * `window.console` with a non-modifiable wrapper. Under bare Node or a
- * worker-shaped realm (no `window`), the console Proxy install is SKIPPED —
- * Node's console is non-configurable territory and is never seized; logging
- * still works as a plain passthrough via `globalThis.console`.
+ * `window.console` with a non-modifiable wrapper: every call is recorded in
+ * the buffer, and printed only when `dev` is true; assigning a console
+ * method is refused (a warning). A later call in the same realm (a second
+ * fw entry) joins that wrapper — its buffer records the same calls — instead
+ * of redefining it; a console another script locked is left alone. Under
+ * bare Node or a worker-shaped realm (no `window`), the console Proxy
+ * install is SKIPPED — logging still works as a plain passthrough via
+ * `globalThis.console`.
  * @param {boolean} dev When true, forward logs to the original console.
  * @returns {LoggerAPI}
  */

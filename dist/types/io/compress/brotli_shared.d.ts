@@ -157,9 +157,5 @@ export type BrotliSharedAPI = {
      * Parse a §5 shared-dictionary stream.
      */
     parseSharedDictionary: (buf: Uint8Array) => BrotliSharedDictionary;
-    /**
-     * Internal helpers exposed for tests.
-     */
-    _internal: object;
 };
 //# sourceMappingURL=brotli_shared.d.ts.map

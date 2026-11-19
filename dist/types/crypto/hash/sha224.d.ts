@@ -65,7 +65,7 @@ export type Sha224Hasher = {
     _block: (words: ArrayLike<number>) => void;
 };
 /**
- * Object returned by `sha224.factory()` (delegates to `sha256._internal.makeSha`).
+ * Object returned by `sha224.factory()` (delegates to the `makeSha` of sha256's internal slot).
  */
 export type Sha224API = {
     /**

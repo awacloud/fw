@@ -18,6 +18,13 @@
  *    run the user-supplied `terminate` callback) before delegating to the native
  *    `terminate`.
  *
+ * **Confinement** (`revoke`, `lockdown`): after `workerFw` has built the
+ * context and before the user function runs, the named globals are removed
+ * from every owner on the global's prototype chain, then `lockdown()` freezes
+ * the worker's realm. What `workerFw` resolved is the explicit grant; the user
+ * function meets the confined realm. `lockdown` makes the worker a MODULE
+ * worker: a static `import` of `sanity/lockdown.js` runs before the body, so no
+ * top-level await delays the message handler.
  */
 /**
  * Options accepted by the `workerRuntime` function returned by
@@ -36,6 +43,16 @@
  *   `workerFw` as its third parameter. Must be JSON-serialisable.
  * @property {Function}  [terminate]        - Callback invoked during cleanup, just
  *   before the native `Worker.terminate()` call. Defaults to a no-op.
+ * @property {string[]}  [revoke]           - Global names to remove inside the
+ *   worker before `workerFn` runs (e.g. `['fetch', 'XMLHttpRequest',
+ *   'WebSocket']`), from every object of the global's prototype chain that owns
+ *   them. A name still reachable afterwards throws in the worker (its `error`
+ *   event): confinement fails closed.
+ * @property {boolean|{url: string}} [lockdown] - Run `lockdown()` inside the
+ *   worker before `workerFn` (after `revoke`). `true` imports the
+ *   `sanity/lockdown.js` that sits next to this file; `{ url }` names it by an
+ *   absolute URL (a bundled or re-hosted build). The worker becomes a module
+ *   worker, where `importScripts` does not exist.
  */
 /**
  * @typedef {Object} ModuleRuntime
@@ -113,6 +130,24 @@ export type WorkerOptions = {
      * before the native `Worker.terminate()` call. Defaults to a no-op.
      */
     terminate?: Function;
+    /**
+     * - Global names to remove inside the
+     * worker before `workerFn` runs (e.g. `['fetch', 'XMLHttpRequest',
+     * 'WebSocket']`), from every object of the global's prototype chain that owns
+     * them. A name still reachable afterwards throws in the worker (its `error`
+     * event): confinement fails closed.
+     */
+    revoke?: string[];
+    /**
+     * - Run `lockdown()` inside the
+     * worker before `workerFn` (after `revoke`). `true` imports the
+     * `sanity/lockdown.js` that sits next to this file; `{ url }` names it by an
+     * absolute URL (a bundled or re-hosted build). The worker becomes a module
+     * worker, where `importScripts` does not exist.
+     */
+    lockdown?: boolean | {
+        url: string;
+    };
 };
 export type ModuleRuntime = {
     /**

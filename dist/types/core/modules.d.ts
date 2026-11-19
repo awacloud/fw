@@ -3,7 +3,7 @@
  * Author: Matthieu Bouilloux
  * SPDX-License-Identifier: Apache-2.0
  */
-declare const _default: ({
+declare const _default: readonly ({
     name: string;
     version: string;
     type: string;
@@ -50,6 +50,12 @@ declare const _default: ({
     type: string;
     dependencies: any[];
     factory(): DownloadAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
+    dependencies: any[];
+    factory(): FileIntakeAPI;
 } | {
     name: string;
     version: string;
@@ -218,6 +224,12 @@ declare const _default: ({
     version: string;
     type: string;
     dependencies: any[];
+    factory(): SoundAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
+    dependencies: any[];
     factory(): StatsAPI;
 } | {
     name: string;
@@ -291,6 +303,12 @@ declare const _default: ({
     name: string;
     version: string;
     type: string;
+    dependencies: any[];
+    factory(): StyleSheetAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
     dependencies: string[];
     deps: {
         name: string;
@@ -305,7 +323,7 @@ declare const _default: ({
     version: string;
     type: string;
     dependencies: string[];
-    deps: {
+    deps: ({
         name: string;
         version: string;
         type: string;
@@ -318,8 +336,14 @@ declare const _default: ({
             factory(): SignalAPI;
         }[];
         factory(signal: any): ReactiveBindAPI;
-    }[];
-    factory(reactiveBind: any): ComponentAPI;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): StyleSheetAPI;
+    })[];
+    factory(reactiveBind: any, styleSheet: any): ComponentAPI;
 } | {
     name: string;
     version: string;
@@ -387,20 +411,26 @@ declare const _default: ({
     name: string;
     type: string;
     dependencies: string[];
-    deps: {
+    deps: ({
         name: string;
         version: string;
         type: string;
         dependencies: any[];
         factory(): SecPolicyAPI;
-    }[];
-    factory(secPolicy: any): TemplateAPI;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): StyleSheetAPI;
+    })[];
+    factory(secPolicy: any, styleSheet: any): TemplateAPI;
 } | {
     name: string;
     version: string;
     type: string;
     dependencies: string[];
-    deps: {
+    deps: ({
         name: string;
         type: string;
         dependencies: string[];
@@ -412,8 +442,14 @@ declare const _default: ({
             factory(): SecPolicyAPI;
         }[];
         factory(secPolicy: any): DomAPI;
-    }[];
-    factory(dom: any): ThemeTokensAPI;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): StyleSheetAPI;
+    })[];
+    factory(dom: any, styleSheet: any): ThemeTokensAPI;
 } | {
     name: string;
     version: string;
@@ -465,14 +501,20 @@ declare const _default: ({
         name: string;
         type: string;
         dependencies: string[];
-        deps: {
+        deps: ({
             name: string;
             version: string;
             type: string;
             dependencies: any[];
             factory(): SecPolicyAPI;
-        }[];
-        factory(secPolicy: any): TemplateAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): StyleSheetAPI;
+        })[];
+        factory(secPolicy: any, styleSheet: any): TemplateAPI;
     })[];
     factory(template: any, render: any, parser: any, dom: any, events: any): UiSessionCoreAPI;
 } | {
@@ -532,14 +574,20 @@ declare const _default: ({
         name: string;
         type: string;
         dependencies: string[];
-        deps: {
+        deps: ({
             name: string;
             version: string;
             type: string;
             dependencies: any[];
             factory(): SecPolicyAPI;
-        }[];
-        factory(secPolicy: any): TemplateAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): StyleSheetAPI;
+        })[];
+        factory(secPolicy: any, styleSheet: any): TemplateAPI;
     })[];
     factory(template: any, render: any, dom: any): UiSessionListAPI;
 } | {
@@ -598,14 +646,20 @@ declare const _default: ({
             name: string;
             type: string;
             dependencies: string[];
-            deps: {
+            deps: ({
                 name: string;
                 version: string;
                 type: string;
                 dependencies: any[];
                 factory(): SecPolicyAPI;
-            }[];
-            factory(secPolicy: any): TemplateAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): StyleSheetAPI;
+            })[];
+            factory(secPolicy: any, styleSheet: any): TemplateAPI;
         })[];
         factory(template: any, render: any, parser: any, dom: any, events: any): UiSessionCoreAPI;
     } | {
@@ -665,14 +719,20 @@ declare const _default: ({
             name: string;
             type: string;
             dependencies: string[];
-            deps: {
+            deps: ({
                 name: string;
                 version: string;
                 type: string;
                 dependencies: any[];
                 factory(): SecPolicyAPI;
-            }[];
-            factory(secPolicy: any): TemplateAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): StyleSheetAPI;
+            })[];
+            factory(secPolicy: any, styleSheet: any): TemplateAPI;
         })[];
         factory(template: any, render: any, dom: any): UiSessionListAPI;
     })[];
@@ -753,6 +813,29 @@ declare const _default: ({
     name: string;
     version: string;
     type: string;
+    dependencies: any[];
+    factory(): InstallPromptAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
+    dependencies: string[];
+    deps: {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): CacheAPI;
+    }[];
+    factory(cache: {
+        open: (name: string) => Promise<any>;
+        delete: (name: string) => Promise<boolean>;
+        keys: () => Promise<string[]>;
+    }): PrecacheAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
     dependencies: string[];
     deps: ({
         name: string;
@@ -781,6 +864,22 @@ declare const _default: ({
         factory(): ProcessRPCAPI;
     }[];
     factory(processRPC: any): SharedWorkerAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
+    dependencies: string[];
+    deps: {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): ServiceWorkerAPI;
+    }[];
+    factory(serviceWorker: {
+        isSupported: () => boolean;
+        register: (url: string, o?: RegistrationOptions) => Promise<ServiceWorkerRegistration>;
+    }): SwUpdateAPI;
 } | {
     name: string;
     version: string;
@@ -1449,7 +1548,10 @@ declare const _default: ({
         inflate: any;
         DeflateStream: any;
         InflateStream: any;
-    }, Adler32: Function): ZlibApi;
+    }, Adler32: new () => {
+        append: (arg0: Uint8Array) => void;
+        get: () => number;
+    }): ZlibApi;
 } | {
     name: string;
     version: string;
@@ -3328,44 +3430,6 @@ declare const _default: ({
         name: string;
         version: string;
         type: string;
-        dependencies: any[];
-        factory(): AesAPI;
-    } | {
-        name: string;
-        version: string;
-        type: string;
-        dependencies: string[];
-        deps: {
-            name: string;
-            version: string;
-            type: string;
-            dependencies: any[];
-            factory(): BitArrayAPI;
-        }[];
-        factory(bitArray: any): CtrAPI;
-    } | {
-        name: string;
-        version: string;
-        type: string;
-        dependencies: any[];
-        factory(): PadAPI;
-    })[];
-    factory(bitArray: any, aes: any, ctr: any, pad: any): AesCtrApi;
-} | {
-    name: string;
-    version: string;
-    type: string;
-    dependencies: string[];
-    deps: ({
-        name: string;
-        version: string;
-        type: string;
-        dependencies: any[];
-        factory(): BitArrayAPI;
-    } | {
-        name: string;
-        version: string;
-        type: string;
         dependencies: string[];
         deps: ({
             name: string;
@@ -3574,6 +3638,255 @@ declare const _default: ({
         factory(): Asn1API;
     }[];
     factory(asn1: any): KeyformatAPI;
+} | {
+    name: string;
+    version: string;
+    type: string;
+    dependencies: string[];
+    deps: ({
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): BitArrayAPI;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: string[];
+        deps: ({
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): BitArrayAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): Utf8API;
+        })[];
+        factory(bitArray: any, utf8: any): Sha256API;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: string[];
+        deps: ({
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): HexAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): BitArrayAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: string[];
+            deps: ({
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): BitArrayAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): Utf8API;
+            })[];
+            factory(bitArray: any, utf8: any): Sha256API;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: string[];
+            deps: {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: string[];
+                deps: ({
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: any[];
+                    factory(): BitArrayAPI;
+                } | {
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: any[];
+                    factory(): Utf8API;
+                })[];
+                factory(bitArray: any, utf8: any): Sha512API;
+            }[];
+            factory(sha512: any): Sha384API;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: string[];
+            deps: ({
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): BitArrayAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): Utf8API;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: string[];
+                deps: ({
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: any[];
+                    factory(): BitArrayAPI;
+                } | {
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: any[];
+                    factory(): Utf8API;
+                })[];
+                factory(bitArray: any, utf8: any): Sha256API;
+            })[];
+            factory(bitArray: any, utf8: any, sha256: any): HmacAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: string[];
+            deps: ({
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): BitArrayAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: string[];
+                deps: ({
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: any[];
+                    factory(): BitArrayAPI;
+                } | {
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: any[];
+                    factory(): AesAPI;
+                } | {
+                    name: string;
+                    version: string;
+                    type: string;
+                    dependencies: string[];
+                    deps: ({
+                        name: string;
+                        version: string;
+                        type: string;
+                        dependencies: any[];
+                        factory(): BitArrayAPI;
+                    } | {
+                        name: string;
+                        version: string;
+                        type: string;
+                        dependencies: any[];
+                        factory(): Utf8API;
+                    })[];
+                    factory(bitArray: any, utf8: any): Sha256API;
+                })[];
+                factory(bitArray: any, aes: any, sha256: any): RandomAPI;
+            })[];
+            factory(bitArray: any, random: any): BnAPI;
+        })[];
+        factory(bitArray: any, hex: any, bn: any, sha256: any, sha384: any, sha512: any, hmac: any): EccApi;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: string[];
+        deps: ({
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): BitArrayAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: string[];
+            deps: ({
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): BitArrayAPI;
+            } | {
+                name: string;
+                version: string;
+                type: string;
+                dependencies: any[];
+                factory(): Utf8API;
+            })[];
+            factory(bitArray: any, utf8: any): Sha512API;
+        })[];
+        factory(sha512: any, bitArray: any): Ed25519API;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): Asn1API;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: string[];
+        deps: {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): Base64API;
+        }[];
+        factory(b64: any): PemAPI;
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: string[];
+        deps: {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): Asn1API;
+        }[];
+        factory(asn1: any): KeyformatAPI;
+    })[];
+    factory(asn1: any, keyformat: any, pem: any, ed25519: any, ecc: any, sha256: any, bitArray: any): X509API;
 } | {
     name: string;
     version: string;

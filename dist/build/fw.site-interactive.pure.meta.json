@@ -69,13 +69,13 @@
   "name": "site-interactive",
   "variant": "pure",
   "bytes": {
-    "min": 236440,
-    "minGz": 84845,
-    "dev": 465986,
-    "devGz": 108239
+    "min": 259697,
+    "minGz": 89801,
+    "dev": 513387,
+    "devGz": 114589
   },
   "hashSha256": {
-    "min": "8582735c451d480a01297d895d46544aa86bb0f719f5454758a40dc827325270",
-    "dev": "3b5744b8c7c2a39401108db5e06cc59ec71cf488cb9fc2d9afb68db9f6cf1b0c"
+    "min": "52296e4e1ebc0a3e50b90b92980d452ac969cb6c492e03e33df29c3b7fbe1d51",
+    "dev": "e0d6f4a66c294c383a8b0955cb2a5a7785799d45916bc8f5809e4e09313f246f"
   }
 }

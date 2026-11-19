@@ -7,15 +7,21 @@ export namespace template {
     let name: string;
     let type: string;
     let dependencies: string[];
-    let deps: {
+    let deps: ({
         name: string;
         version: string;
         type: string;
         dependencies: any[];
         factory(): SecPolicyAPI;
-    }[];
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): StyleSheetAPI;
+    })[];
     /** @returns {TemplateAPI} */
-    function factory(secPolicy: any): TemplateAPI;
+    function factory(secPolicy: any, styleSheet: any): TemplateAPI;
 }
 /**
  * An entry in the live element map maintained per context.

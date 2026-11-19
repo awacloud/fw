@@ -86,7 +86,8 @@
     "processMessage",
     "processRPC",
     "dnd",
-    "media"
+    "media",
+    "sound"
   ],
   "env": {
     "DEV": false,
@@ -96,13 +97,13 @@
   "name": "spa",
   "variant": "pure",
   "bytes": {
-    "min": 322863,
-    "minGz": 112895,
-    "dev": 653392,
-    "devGz": 144494
+    "min": 356259,
+    "minGz": 121843,
+    "dev": 719786,
+    "devGz": 155560
   },
   "hashSha256": {
-    "min": "b8544c19043a6612e8a1dc11c98ab566b546eb80ef93f0374b2b1609a62ee21f",
-    "dev": "2047f66deca1da243c5b5f8a15c88a090027912f960ddf1253516a56af6a1f39"
+    "min": "9c782df49012c7d3b06c647e06db5c1c8ccede310aff7437a632591badee2886",
+    "dev": "5a7923f11dd9fbbeeafae9b833ae3e11645321929479e7989bf7a016c7e6181a"
   }
 }

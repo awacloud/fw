@@ -46,11 +46,5 @@ export type CmacAPI = {
     truncatedVerify: (prf: {
         encrypt: Function;
     }, message: number[], tag: number[], tagLen: number) => boolean;
-    /**
-     * Internal primitive (KAT tests only).
-     */
-    _internal: {
-        dbl: (b: number[]) => number[];
-    };
 };
 //# sourceMappingURL=cmac.d.ts.map

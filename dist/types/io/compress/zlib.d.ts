@@ -49,7 +49,7 @@ export namespace zlib {
     })[];
     /**
      * @param {{ deflateSync, inflateSync, deflate, inflate, DeflateStream, InflateStream }} deflateModule
-     * @param {Function} Adler32 - constructor returned by adler32.factory()
+     * @param {new() => {append: function(Uint8Array): void, get: function(): number}} Adler32 - constructor returned by adler32.factory()
      * @returns {ZlibApi}
      */
     function factory(deflateModule: {
@@ -59,7 +59,10 @@ export namespace zlib {
         inflate: any;
         DeflateStream: any;
         InflateStream: any;
-    }, Adler32: Function): ZlibApi;
+    }, Adler32: new () => {
+        append: (arg0: Uint8Array) => void;
+        get: () => number;
+    }): ZlibApi;
 }
 /**
  * Streaming Zlib compressor instance shape.
@@ -78,6 +81,10 @@ export type ZlibStreamCtor = new (opts?: object | ((chunk: Uint8Array, isFinal: 
 export type UnzlibStreamInstance = {
     ondata: ((chunk: Uint8Array, isFinal: boolean) => void) | null;
     push: (chunk: Uint8Array, final?: boolean) => void;
+    /**
+     * End the stream without a trailer: decode and emit the held-back bytes.
+     */
+    flush: () => void;
 };
 /**
  * Constructor for `UnzlibStream`.

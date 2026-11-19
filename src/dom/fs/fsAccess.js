@@ -1,4 +1,4 @@
-﻿// Copyright (c) 2026 AwaCloud SAS
+// Copyright (c) 2026 AwaCloud SAS
 // Author: Matthieu Bouilloux
 // SPDX-License-Identifier: Apache-2.0
 
@@ -40,8 +40,7 @@
  *
  * **Worker-safe:** partial - OPFS and handle helpers yes; pickers no (DOM-bound).
  *
- * Out of MVP scope: file drag-and-drop (see `dnd` P2 module),
- * legacy File API (`<input type=file>`).
+ * Out of MVP scope: file drag-and-drop and the legacy File API (`<input type=file>`) — see the `fileIntake` module.
  *
  * @example
  * const fs = runtime.resolve('fsAccess');

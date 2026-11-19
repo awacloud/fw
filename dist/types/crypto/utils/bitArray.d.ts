@@ -60,14 +60,6 @@ export type BitArrayAPI = {
      */
     equal: (a: number[], b: number[]) => boolean;
     /**
-     * Shift a bit array right (private).
-     */
-    _shiftRight: (a: number[], shift: number, carry?: number, out?: number[]) => number[];
-    /**
-     * XOR two 4-word blocks element-wise (private).
-     */
-    _xor4: (x: number[], y: number[]) => number[];
-    /**
      * Byte-swap each word in place; `false` on a partial word.
      */
     byteswapM: (a: number[]) => (number[] | false);

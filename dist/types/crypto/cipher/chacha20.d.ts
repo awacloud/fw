@@ -19,15 +19,5 @@ export type ChaCha20API = {
      * XOR `data` with the ChaCha20 keystream; `false` on invalid key/nonce or counter overflow.
      */
     xor: (key: Uint8Array, nonce: Uint8Array, data: Uint8Array, initialCounter?: number) => (Uint8Array | false);
-    /**
-     * Explicit reject for the unimplemented XChaCha20 variant (always `false`).
-     */
-    xchacha20: () => false;
-    /**
-     * Internal block primitive (debug/introspection only).
-     */
-    _internal: {
-        block: (key32: Int32Array, counter: number, nonce32: Int32Array, out32: Int32Array) => void;
-    };
 };
 //# sourceMappingURL=chacha20.d.ts.map

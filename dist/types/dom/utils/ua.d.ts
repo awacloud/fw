@@ -20,7 +20,7 @@ export type UaAPI = {
      */
     string: () => string;
     /**
-     * `true` when the UA matches known mobile-device patterns.
+     * `true` on a phone-class device: UA-CH `mobile` when available, else "Mobi" in the UA.
      */
     mobile: () => boolean;
     /**
@@ -28,7 +28,7 @@ export type UaAPI = {
      */
     touch: () => boolean;
     /**
-     *   Normalised platform identifier derived from the UA string.
+     *   Normalised platform: UA-CH `platform` when available, else a minimal UA reading.
      */
     platform: () => ("ios" | "android" | "windows" | "mac" | "linux" | "unknown");
 };

@@ -16,7 +16,7 @@ export namespace bitstream {
  */
 export type BitstreamAPI = {
     /**
-     * Read up to 16 bits at `bitPos`, masked by `mask`.
+     * Read `width` bits at `bitPos`, masked by `mask` (exact while `width + (bitPos & 7) <= 16`).
      */
     readBits: (buf: Uint8Array, bitPos: number, mask: number) => number;
     /**

@@ -46,7 +46,7 @@ export namespace random {
 export type TypedArray = Int8Array | Uint8Array | Uint8ClampedArray | Int16Array | Uint16Array | Int32Array | Uint32Array | BigInt64Array | BigUint64Array;
 /**
  * Low-level CTR_DRBG instance produced by the internal `_makeDrbg` factory
- * (exposed via `_internal.makeDrbg`). Caller drives the full SP 800-90A
+ * (exposed in the internal slot as `makeDrbg`). Caller drives the full SP 800-90A
  * lifecycle manually with explicit seed material.
  */
 export type DrbgCore = {
@@ -178,15 +178,6 @@ export type RandomAPI = {
      * Run / re-run the CTR_DRBG power-on self-test.
      */
     selfTest: () => boolean;
-    /**
-     * Test-only internal CTR_DRBG factory.
-     */
-    _internal: {
-        makeDrbg: (opts?: {
-            aesKeyBits?: 128 | 192 | 256;
-            df?: boolean;
-        }) => (DrbgCore | false);
-    };
     /**
      * Continuous health-test surface.
      */

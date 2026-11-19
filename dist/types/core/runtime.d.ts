@@ -275,19 +275,23 @@ export class ModuleRuntime {
     /**
      * List registered module definitions matching the given filter.
      *
+     * The result is read-only: a frozen array of frozen copies of the
+     * definitions (their `dependencies` a frozen copy too), so a caller
+     * cannot edit the registry through it (BL-469). A copy is not the
+     * registered object: compare by `name` and `version`, not identity.
+     *
      * Linear scan ; acceptable for the typical module count (≪ 1000).
      *
      * @param {ListFilter} [filter={}]
-     * @returns {ModuleDefinition[]}
+     * @returns {ReadonlyArray<Readonly<ModuleDefinition>>}
      */
-    list(filter?: ListFilter): ModuleDefinition[];
+    list(filter?: ListFilter): ReadonlyArray<Readonly<ModuleDefinition>>;
     /**
      * Passive, read-only view of the module registry.
      *
-     * Companion of {@link ModuleRuntime#list}, which returns the **live**
-     * `ModuleDefinition` objects (their `factory`, and a `dependencies` array a
-     * caller can splice in place). `snapshot` instead returns frozen metadata
-     * rows: enumeration for a devtools registry view without handing out a
+     * Companion of {@link ModuleRuntime#list}, which returns frozen copies
+     * of the `ModuleDefinition` objects (their `factory` included).
+     * `snapshot` instead returns frozen metadata rows: enumeration for a devtools registry view without handing out a
      * write channel into registry state, and without the side effect of
      * `resolve()` — which is a full instantiate, not a peek.
      *

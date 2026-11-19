@@ -81,6 +81,10 @@ export type GzipStreamCtor = new (opts?: object | ((chunk: Uint8Array, isFinal: 
 export type GunzipStreamInstance = {
     ondata: ((chunk: Uint8Array, isFinal: boolean) => void) | null;
     push: (chunk: Uint8Array, final?: boolean) => void;
+    /**
+     * End the stream without a trailer: decode and emit the held-back bytes.
+     */
+    flush: () => void;
 };
 /**
  * Constructor for `GunzipStream`.

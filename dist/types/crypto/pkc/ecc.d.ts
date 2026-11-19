@@ -279,6 +279,5 @@ export type EccApi = {
         publicKey: EccPublicKeyCtor;
         secretKey: EccSecretKeyCtor;
     };
-    _internal: object;
 };
 //# sourceMappingURL=ecc.d.ts.map

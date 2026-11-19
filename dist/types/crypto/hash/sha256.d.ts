@@ -45,9 +45,9 @@ export type Sha256Hasher = {
      */
     reset: () => Sha256Hasher;
     /**
-     * Absorb a bitArray or UTF-8 string; returns `this`, or `false` on > 2^53-1 bit overflow.
+     * Absorb a bitArray, a UTF-8 string or bytes (`Uint8Array`, hashed as its bytes); returns `this`, or `false` on > 2^53-1 bit overflow.
      */
-    update: (data: number[] | string) => (Sha256Hasher | false);
+    update: (data: number[] | string | Uint8Array) => (Sha256Hasher | false);
     /**
      * Pad and emit the digest as a bitArray (8 words for SHA-256, truncated per `outWords`).
      */
@@ -66,17 +66,8 @@ export type Sha256API = {
      */
     fn: new (hash?: Sha256Hasher) => Sha256Hasher;
     /**
-     * One-shot hash; returns the digest as a bitArray.
+     * One-shot hash of a bitArray, a UTF-8 string or bytes; returns the digest as a bitArray.
      */
-    hash: (data: number[] | string) => number[];
-    /**
-     * Escape hatch used by sha224.js to build a truncated variant.
-     */
-    _internal: {
-        makeSha: (init: number[], outWords: number) => {
-            fn: Function;
-            hash: Function;
-        };
-    };
+    hash: (data: number[] | string | Uint8Array) => number[];
 };
 //# sourceMappingURL=sha256.d.ts.map

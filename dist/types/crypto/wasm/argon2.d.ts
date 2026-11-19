@@ -30,7 +30,8 @@ export type WasmArgon2Options = {
      */
     timeCost: number;
     /**
-     * Memory cost `m` in KiB (≥ 8·parallelism).
+     * Memory cost `m` in KiB (≥ 8·parallelism,
+     * ≤ 1048576 — the binary's 1 GiB ceiling).
      */
     memoryKiB: number;
     /**

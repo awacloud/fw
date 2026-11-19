@@ -60,20 +60,5 @@ export type Argon2API = {
      *   Argon2id hash → tag bytes of length `tagLen`, or `false` on error.
      */
     hash: (opts: Argon2Options) => (Uint8Array | false);
-    /**
-     * Argon2d - explicitly rejected (warns, returns `false`).
-     */
-    hashD: () => false;
-    /**
-     * Argon2i - explicitly rejected (warns, returns `false`).
-     */
-    hashI: () => false;
-    /**
-     *   Internal primitives exposed for KAT tests / debug only.
-     */
-    _internal: {
-        Hp: (input: Uint8Array, outLen: number) => Uint8Array;
-        compress: (out: Uint32Array, X: Uint32Array, Y: Uint32Array) => void;
-    };
 };
 //# sourceMappingURL=argon2.d.ts.map

@@ -108,9 +108,10 @@ const worker = fw.createWorker(
 - The Cache API **has no native expiration** — implement TTL at the application level (e.g. store a timestamp in the key or the response).
 - `cache.open` is idempotent — repeated calls with the same name return the same instance (native semantics).
 - Throws `'cache: caches API is not available'` if `globalThis.caches` is absent (very old browser or non-secure context).
-- For precomposed offline-first/stale-while-revalidate strategies, this layer should be enriched on the `lib/` side.
+- Precomposed offline strategies are in [`precache`](./precache.md) (worker side: cache-first, network-first, the release precache); `cache` stays the raw Cache Storage layer.
 
 ## See also
 
 - [serviceWorker](./serviceWorker.md) — SW lifecycle (window-side)
+- [precache](./precache.md) — worker-side release precache with cache-first / network-first strategies
 - [broadcastChannel](../net/broadcastChannel.md) — SW ↔ clients communication

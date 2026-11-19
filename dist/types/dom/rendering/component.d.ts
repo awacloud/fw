@@ -8,7 +8,7 @@ export namespace component {
     let version: string;
     let type: string;
     let dependencies: string[];
-    let deps: {
+    let deps: ({
         name: string;
         version: string;
         type: string;
@@ -21,9 +21,15 @@ export namespace component {
             factory(): SignalAPI;
         }[];
         factory(signal: any): ReactiveBindAPI;
-    }[];
+    } | {
+        name: string;
+        version: string;
+        type: string;
+        dependencies: any[];
+        factory(): StyleSheetAPI;
+    })[];
     /** @returns {ComponentAPI} */
-    function factory(reactiveBind: any): ComponentAPI;
+    function factory(reactiveBind: any, styleSheet: any): ComponentAPI;
 }
 /**
  * A mounted component instance returned by a component factory.

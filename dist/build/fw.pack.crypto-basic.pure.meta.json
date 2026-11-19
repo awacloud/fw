@@ -17,13 +17,13 @@
   "name": "crypto-basic",
   "variant": "pure",
   "bytes": {
-    "min": 44111,
-    "minGz": 16793,
-    "dev": 96468,
-    "devGz": 21856
+    "min": 58790,
+    "minGz": 19486,
+    "dev": 125132,
+    "devGz": 25215
   },
   "hashSha256": {
-    "min": "2ea972b66899fa07d69c0581328ce1ac412e4a6739a67032898a854312b65f00",
-    "dev": "ba4fbc2e3eee4aa662835ff2b22ebd9c98bffd7a2a8bc097e89df3c8416a8522"
+    "min": "b044ece3ed2e084f83c4de924d42db32f79f954229c6ba47c56fbf1173343d64",
+    "dev": "b10c80ee8b1e5361259f6e8d546a8047f110e9008096b580ad1163663f1089b1"
   }
 }

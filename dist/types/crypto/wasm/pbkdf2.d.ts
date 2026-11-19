@@ -30,9 +30,9 @@ export type WasmPbkdf2API = {
      */
     isAvailable: () => boolean;
     /**
-     *   Derive `dkLen` bytes via PBKDF2-HMAC-SHA-{256|384|512}. Resolves
+     *   Derive `lengthBits / 8` bytes via PBKDF2-HMAC-SHA-{256|384|512}. Resolves
      *   `false` on invalid params, load failure, or WASM error — never rejects.
      */
-    deriveBits: (password: Uint8Array, salt: Uint8Array, dkLen: number, iterations?: number, hash?: 256 | 384 | 512) => Promise<Uint8Array | false>;
+    deriveBits: (password: Uint8Array, salt: Uint8Array, lengthBits: number, iterations?: number, hash?: 256 | 384 | 512) => Promise<Uint8Array | false>;
 };
 //# sourceMappingURL=pbkdf2.d.ts.map

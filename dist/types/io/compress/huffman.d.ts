@@ -33,5 +33,12 @@ export type HuffmanAPI = {
         t: Uint8Array;
         l: number;
     };
+    /**
+     * Kraft check of a code-length set (`buildMap` does not check).
+     */
+    kraft: (codeLengths: Uint8Array | number[]) => {
+        oversubscribed: boolean;
+        incomplete: boolean;
+    };
 };
 //# sourceMappingURL=huffman.d.ts.map

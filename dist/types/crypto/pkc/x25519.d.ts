@@ -27,11 +27,5 @@ export type X25519API = {
      * True iff `u` is a documented low-order point (or malformed length).
      */
     isLowOrderPoint: (u: Uint8Array) => boolean;
-    /**
-     * Embedded low-order point table.
-     */
-    _internal: {
-        lowOrderPoints: Uint8Array[];
-    };
 };
 //# sourceMappingURL=x25519.d.ts.map

@@ -21,12 +21,20 @@ export type ClipboardAPI = {
     isSupported: () => {
         read: boolean;
         write: boolean;
+        richWrite: boolean;
         share: boolean;
     };
     /**
      *   Write `text` to the system clipboard.
      */
     set: (text: string) => Promise<void>;
+    /**
+     *   Write one clipboard item carrying `text/html` and `text/plain`.
+     */
+    setRich: (content: {
+        html: string | Promise<string>;
+        text: string | Promise<string>;
+    }) => Promise<void>;
     /**
      *   Read text from the system clipboard.
      */

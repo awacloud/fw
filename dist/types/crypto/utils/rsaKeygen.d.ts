@@ -148,15 +148,5 @@ export type RsaKeygenAPI = {
      * Generate a probable prime (`bn` instance) coprime with `e`.
      */
     generateProbablePrime: (nbits: number, eBn: unknown, drbg: object) => (unknown | false);
-    /**
-     * Internal primitives exposed for KAT tests only; not API.
-     */
-    _internal: {
-        millerRabin: Function;
-        smallPrimes: number[];
-        divmod: Function;
-        lcm: Function;
-        inverseModAny: Function;
-    };
 };
 //# sourceMappingURL=rsaKeygen.d.ts.map

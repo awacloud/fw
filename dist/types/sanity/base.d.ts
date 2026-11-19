@@ -16,13 +16,23 @@
  *
  * The returned `steps` list names each hardening pass in application order.
  * Prototype freezing runs FIRST by design (most critical, and later passes
- * install setters that must survive it).
+ * install setters that must survive it). A pass is listed once it ran; the
+ * individual slots it could not harden (a non-configurable property, a frozen
+ * namespace) are listed in `failures`, one `{ step, target, message }` entry
+ * each, `[]` on a clean apply. They are also warned on the console.
  *
- * @returns {{applied: boolean, reason?: string, steps: string[]}} report of what was applied
+ * @returns {{applied: boolean, reason?: string, steps: string[],
+ *   failures: Array<{step: string, target: string, message: string}>}}
+ *   report of what was applied
  */
 export function applyBase(): {
     applied: boolean;
     reason?: string;
     steps: string[];
+    failures: Array<{
+        step: string;
+        target: string;
+        message: string;
+    }>;
 };
 //# sourceMappingURL=base.d.ts.map

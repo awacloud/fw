@@ -42,7 +42,9 @@ export type UrlAPI = {
         skipNull?: boolean;
         sort?: boolean;
     }) => string;
-    parseURL: (str: string, base?: string) => ParsedURL;
+    parseURL: (str: string, base?: string, options?: {
+        space?: "plus" | "percent";
+    }) => ParsedURL;
     buildURL: (parts: any) => string;
     encodeSafe: (s: string, options?: {
         safe?: string;

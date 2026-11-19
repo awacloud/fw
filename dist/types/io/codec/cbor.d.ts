@@ -36,6 +36,7 @@ export type CborAPI = {
     }) => Uint8Array;
     decode: (bytes: Uint8Array, options?: {
         useMap?: boolean;
+        maxDepth?: number;
     }) => unknown;
     Tagged: new (tag: number, value: unknown) => CborTagged;
     Simple: new (value: number) => CborSimple;

@@ -13,6 +13,7 @@ import { fullscreen } from '../dom/display/fullscreen.js';
 
 // dom/fs
 import { download } from '../dom/fs/download.js';
+import { fileIntake } from '../dom/fs/fileIntake.js';
 import { fsAccess } from '../dom/fs/fsAccess.js';
 import { indexedDB } from '../dom/fs/indexedDB.js';
 import { remoteStore } from '../dom/fs/remoteStore.js';
@@ -37,6 +38,7 @@ import { dom } from '../dom/query/dom.js';
 import { events } from '../dom/query/events.js';
 import { gesture } from '../dom/query/gesture.js';
 import { media } from '../dom/query/media.js';
+import { sound } from '../dom/query/sound.js';
 
 // dom/rendering
 import { chart } from '../dom/rendering/chart.js';
@@ -50,6 +52,7 @@ import { sanitize } from '../dom/rendering/sanitize.js';
 import { secPolicy } from '../dom/rendering/secPolicy.js';
 import { template } from '../dom/rendering/template.js';
 import { themeTokens } from '../dom/rendering/themeTokens.js';
+import { styleSheet } from '../dom/rendering/styleSheet.js';
 import { uiSession } from '../dom/rendering/uiSession.js';
 import { uiSessionCore }   from '../dom/rendering/uiSession-core.js';
 import { uiSessionDirect } from '../dom/rendering/uiSession-direct.js';
@@ -65,9 +68,12 @@ import { sensors } from '../dom/sensors/sensors.js';
 // dom/sw
 import { backgroundSync } from '../dom/sw/backgroundSync.js';
 import { cache } from '../dom/sw/cache.js';
+import { installPrompt } from '../dom/sw/installPrompt.js';
+import { precache } from '../dom/sw/precache.js';
 import { push } from '../dom/sw/push.js';
 import { serviceWorker } from '../dom/sw/serviceWorker.js';
 import { sharedWorker } from '../dom/sw/sharedWorker.js';
+import { swUpdate } from '../dom/sw/swUpdate.js';
 
 // dom/utils
 import { a11y } from '../dom/utils/a11y.js';
@@ -223,11 +229,11 @@ import { aes_modes } from '../crypto/utils/aes_modes.js';
 import { bn } from '../crypto/utils/bn.js';
 import { pad } from '../crypto/utils/pad.js';
 import { random } from '../crypto/utils/random.js';
-import { aes_ctr } from '../crypto/utils/aes_ctr.js';
 import { uuid } from '../crypto/utils/uuid.js';
 import { rsaKeygen } from '../crypto/utils/rsaKeygen.js';
 import { jws } from '../crypto/utils/jws.js';
 import { keyformat } from '../crypto/utils/keyformat.js';
+import { x509 } from '../crypto/utils/x509.js';
 import { totp } from '../crypto/utils/totp.js';
 
 // crypto/webcrypto
@@ -267,23 +273,26 @@ import { wasmX25519 } from '../crypto/wasm/x25519.js';
 
 /* !dev_only */
 
-export default [
+// Frozen: an import of the registry cannot add, drop or replace a module
+// for every other importer (D9 G1).
+export default Object.freeze([
     processMessage, processRPC, workerPool, clock, rateLimit, scheduler, sse, webrtc, broadcastChannel, network,
-    backgroundSync, cache, push, serviceWorker, sharedWorker, date, i18n, ansi, htmlEntities, semver, str, unicode,
+    backgroundSync, cache, precache, push, serviceWorker, swUpdate, sharedWorker, installPrompt,
+    date, i18n, ansi, htmlEntities, semver, str, unicode,
     lruCache, heap, ringBuffer, trie, btree, treeWalker, abort, mutex, semaphore, channel, atomics, cancellable,
     tokenBucket, binaryReader, binaryWriter, easing, crc32, adler32, bigint, linalg, stats, geom, interp, fixedPoint,
     geolocation, battery, networkInfo, sensors, a11y, focus, form, formKit, keybindings, leaderElection, notifications,
     permissions, route, webauthn, visibility, idle, wakeLock, lz4, bitstream, huffman, lz77, lzw, deflate, gzip, zlib,
     zip, brotliDict, brotliDictWords, brotli, brotliShared, brotliFrame, b64, base32, base58, buffer, cbor, csv, hex,
     mime, msgpack, url, utf8, xml, errors, eventBus, bitmap, queue, signal, ui8, uuid, valid, chart, component, parser,
-    reactiveBind, render, sanitize, secPolicy, template, themeTokens, devtools, devtoolsUI, uiSession, uiSessionCore, uiSessionDirect,
-    uiSessionList, virtualScroll, dnd, dom, events, gesture, media, animate, fullscreen, download, fsAccess,
+    reactiveBind, render, sanitize, secPolicy, template, themeTokens, styleSheet, devtools, devtoolsUI, uiSession, uiSessionCore, uiSessionDirect,
+    uiSessionList, virtualScroll, dnd, dom, events, gesture, media, sound, animate, fullscreen, download, fileIntake, fsAccess,
     indexedDB, remoteStore, storage, ajax, ws, entropyCollector, clipboard, ua, bitArray, asn1, asn1Oid, pem,
-    aes_modes, bn, pad, random, aes_ctr, sha256, sha224, sha512, sha512_224, sha512_256, sha384, hmac, pbkdf2,
+    aes_modes, bn, pad, random, sha256, sha224, sha512, sha512_224, sha512_256, sha384, hmac, pbkdf2,
     hkdf, sha3, adf, poly1305, blake2b, argon2, aes, chacha20, ctr, cbc, gcm, cmac, kw, chacha20poly1305, ecc,
-    x25519, ed25519, rsa, ml_kem, ml_dsa, slh_dsa, hybridKem, hybridSign, rsaKeygen, jws, keyformat, totp,
+    x25519, ed25519, rsa, ml_kem, ml_dsa, slh_dsa, hybridKem, hybridSign, rsaKeygen, jws, keyformat, x509, totp,
     webcryptoDigest, webcryptoHmac, webcryptoPbkdf2, webcryptoHkdf, webcryptoAes, webcryptoAesKw, webcryptoRsa,
     webcryptoEcc, webcryptoEd25519, webcryptoX25519,
     wasmRuntime, wasmArgon2, wasmMlKem, wasmMlDsa, wasmSlhDsa, wasmSha3, wasmBlake2b, wasmChacha20poly1305,
     wasmCmac, wasmSha2, wasmHmac, wasmPbkdf2, wasmHkdf, wasmAes, wasmRsa, wasmEcc, wasmEd25519, wasmX25519
-];
+]);

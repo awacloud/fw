@@ -30,6 +30,10 @@ export type Lz77API = {
         count: number;
     };
     /**
+     * Resumable scan: successive `fill` calls give the `encodeTokens` token sequence, `max` tokens at a time.
+     */
+    createScanner: (data: Uint8Array, opts?: object) => Lz77Scanner;
+    /**
      * Single-position match probe.
      */
     findMatch: (data: Uint8Array, pos: number, head: Int32Array, prev: Int32Array, opts: object) => ({
@@ -62,5 +66,18 @@ export type Lz77API = {
         start: number;
         hashFn: (((data: Uint8Array, pos: number) => number) | null);
     };
+};
+/**
+ * A resumable scan from `lz77.createScanner`.
+ */
+export type Lz77Scanner = {
+    /**
+     * Write at most `max` tokens (`2 × max` entries) from index 0; returns how many. Fewer than `max` only at the end of the input.
+     */
+    fill: (tokens: Int32Array, max: number) => number;
+    /**
+     * `true` once every token has been written.
+     */
+    done: boolean;
 };
 //# sourceMappingURL=lz77.d.ts.map

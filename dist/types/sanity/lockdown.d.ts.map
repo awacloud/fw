@@ -1,1 +1,1 @@
-{"version":3,"file":"lockdown.d.ts","sourceRoot":"","sources":["../../../src/sanity/lockdown.js"],"names":[],"mappings":";;;;;AAgVA;;;;;;;;;;;;;;;;;;;;;GAqBG;AACH,mCANW,MAAM,GACJ,IAAI,CAoDhB;AArVD;;;;;;;;;;;;GAYG;AACH,uBAJa,CAAC,UACH,CAAC,GACC,CAAC,CAyDb"}
+{"version":3,"file":"lockdown.d.ts","sourceRoot":"","sources":["../../../src/sanity/lockdown.js"],"names":[],"mappings":";;;;;AAkWA;;;;;;;;;;;;;;;;;;;;;;GAsBG;AACH,mCANW,MAAM,GACJ,IAAI,CA2DhB;AA7WD;;;;;;;;;;;;GAYG;AACH,uBAJa,CAAC,UACH,CAAC,GACC,CAAC,CA4Db"}

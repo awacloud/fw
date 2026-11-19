@@ -124,7 +124,7 @@ const kp = await worker.call('hybridKem.xwing.keygen');
 
 ## Positioning & liability
 
-awa ships X-Wing as a **certifiable cryptographic component**, not a certified
+AWA ships X-Wing as a **certifiable cryptographic component**, not a certified
 product: no ANSSI/FIPS certification of the composite scheme is claimed here. The
 underlying ML-KEM-768 is ACVP-green (`src/crypto/pkc/ml_kem.acvp.md`); X25519 is
 RFC 7748 vector-green. Correctness is anchored to the **official IETF X-Wing KAT**
@@ -168,7 +168,13 @@ deterministic, network-free regeneration proof.
   or key derivation breaks interop — re-pin and re-verify against fresh vectors.
 - Deterministic for fixed inputs (32-byte seed, 64-byte encaps randomness), which
   is exactly what the KAT exercises; production callers omit them to draw the
-  platform CSPRNG.
+  platform CSPRNG — `crypto.getRandomValues` directly, not the fw `random`
+  module (no DRBG, no SP 800-90B health tests on that path).
+- The standalone `xwing` export (`import { xwing } from '@awacloud/fw/crypto/pkc/hybridKem.js'`)
+  builds its default primitives on first use and keeps that one instance at
+  module scope: nothing runs at import, and the DI factory stays pure and
+  worker-serializable. It is the package's one convenience cache outside a
+  factory; resolve `hybridKem` through the runtime for an instance you own.
 
 ## See also
 

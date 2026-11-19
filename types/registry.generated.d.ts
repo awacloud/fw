@@ -17,7 +17,6 @@ export interface ModuleInstanceMap {
     adf: ReturnType<typeof import('../dist/types/crypto/hash/adf')['adf']['factory']>;
     adler32: ReturnType<typeof import('../dist/types/io/calc/adler32')['adler32']['factory']>;
     aes: ReturnType<typeof import('../dist/types/crypto/cipher/aes')['aes']['factory']>;
-    aes_ctr: ReturnType<typeof import('../dist/types/crypto/utils/aes_ctr')['aes_ctr']['factory']>;
     aes_modes: ReturnType<typeof import('../dist/types/crypto/utils/aes_modes')['aes_modes']['factory']>;
     ajax: ReturnType<typeof import('../dist/types/dom/net/ajax')['ajax']['factory']>;
     animate: ReturnType<typeof import('../dist/types/dom/display/animate')['animate']['factory']>;
@@ -76,6 +75,7 @@ export interface ModuleInstanceMap {
     errors: ReturnType<typeof import('../dist/types/io/utils/errors')['errors']['factory']>;
     eventBus: ReturnType<typeof import('../dist/types/io/utils/eventBus')['eventBus']['factory']>;
     events: ReturnType<typeof import('../dist/types/dom/query/events')['events']['factory']>;
+    fileIntake: ReturnType<typeof import('../dist/types/dom/fs/fileIntake')['fileIntake']['factory']>;
     fixedPoint: ReturnType<typeof import('../dist/types/io/math/fixed-point')['fixedPoint']['factory']>;
     focus: ReturnType<typeof import('../dist/types/dom/utils/focus')['focus']['factory']>;
     form: ReturnType<typeof import('../dist/types/dom/utils/form')['form']['factory']>;
@@ -98,6 +98,7 @@ export interface ModuleInstanceMap {
     i18n: ReturnType<typeof import('../dist/types/io/i18n/i18n')['i18n']['factory']>;
     idle: ReturnType<typeof import('../dist/types/dom/lifecycle/idle')['idle']['factory']>;
     indexedDB: ReturnType<typeof import('../dist/types/dom/fs/indexedDB')['indexedDB']['factory']>;
+    installPrompt: ReturnType<typeof import('../dist/types/dom/sw/installPrompt')['installPrompt']['factory']>;
     interp: ReturnType<typeof import('../dist/types/io/math/interp')['interp']['factory']>;
     jws: ReturnType<typeof import('../dist/types/crypto/utils/jws')['jws']['factory']>;
     keybindings: ReturnType<typeof import('../dist/types/dom/utils/keybindings')['keybindings']['factory']>;
@@ -124,6 +125,7 @@ export interface ModuleInstanceMap {
     pem: ReturnType<typeof import('../dist/types/crypto/utils/pem')['pem']['factory']>;
     permissions: ReturnType<typeof import('../dist/types/dom/utils/permissions')['permissions']['factory']>;
     poly1305: ReturnType<typeof import('../dist/types/crypto/hash/poly1305')['poly1305']['factory']>;
+    precache: ReturnType<typeof import('../dist/types/dom/sw/precache')['precache']['factory']>;
     processMessage: ReturnType<typeof import('../dist/types/process/message')['processMessage']['factory']>;
     processRPC: ReturnType<typeof import('../dist/types/process/rpc')['processRPC']['factory']>;
     push: ReturnType<typeof import('../dist/types/dom/sw/push')['push']['factory']>;
@@ -154,10 +156,13 @@ export interface ModuleInstanceMap {
     sharedWorker: ReturnType<typeof import('../dist/types/dom/sw/sharedWorker')['sharedWorker']['factory']>;
     signal: ReturnType<typeof import('../dist/types/io/utils/signal')['signal']['factory']>;
     slh_dsa: ReturnType<typeof import('../dist/types/crypto/pkc/slh_dsa')['slh_dsa']['factory']>;
+    sound: ReturnType<typeof import('../dist/types/dom/query/sound')['sound']['factory']>;
     sse: ReturnType<typeof import('../dist/types/dom/net/sse')['sse']['factory']>;
     stats: ReturnType<typeof import('../dist/types/io/math/stats')['stats']['factory']>;
     storage: ReturnType<typeof import('../dist/types/dom/fs/storage')['storage']['factory']>;
     str: ReturnType<typeof import('../dist/types/io/text/str')['str']['factory']>;
+    styleSheet: ReturnType<typeof import('../dist/types/dom/rendering/styleSheet')['styleSheet']['factory']>;
+    swUpdate: ReturnType<typeof import('../dist/types/dom/sw/swUpdate')['swUpdate']['factory']>;
     template: ReturnType<typeof import('../dist/types/dom/rendering/template')['template']['factory']>;
     themeTokens: ReturnType<typeof import('../dist/types/dom/rendering/themeTokens')['themeTokens']['factory']>;
     tokenBucket: ReturnType<typeof import('../dist/types/io/sync/tokenBucket')['tokenBucket']['factory']>;
@@ -211,6 +216,7 @@ export interface ModuleInstanceMap {
     workerPool: ReturnType<typeof import('../dist/types/process/workerPool')['workerPool']['factory']>;
     ws: ReturnType<typeof import('../dist/types/dom/net/ws')['ws']['factory']>;
     x25519: ReturnType<typeof import('../dist/types/crypto/pkc/x25519')['x25519']['factory']>;
+    x509: ReturnType<typeof import('../dist/types/crypto/utils/x509')['x509']['factory']>;
     xml: ReturnType<typeof import('../dist/types/io/codec/xml')['xml']['factory']>;
     zip: ReturnType<typeof import('../dist/types/io/compress/zip')['zip']['factory']>;
     zlib: ReturnType<typeof import('../dist/types/io/compress/zlib')['zlib']['factory']>;

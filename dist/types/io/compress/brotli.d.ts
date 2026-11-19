@@ -81,6 +81,5 @@ export type BrotliApi = {
     brotliDecompress: (data: Uint8Array, opts?: object) => Promise<Uint8Array>;
     BrotliCompressStream: BrotliCompressStreamCtor;
     BrotliDecompressStream: BrotliDecompressStreamCtor;
-    _internal: object;
 };
 //# sourceMappingURL=brotli.d.ts.map

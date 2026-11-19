@@ -23,7 +23,7 @@ export function captureRealEvaluators(g?: typeof globalThis): boolean;
  * Close the SYNCHRONOUS compile path — `new WebAssembly.Module(bytes)` and
  * `new WebAssembly.Instance(module)`.
  *
- * MEASURED HOLE (fw-sanity W0 FINDINGS §d.2): `removeAmbientEvaluators()`
+ * MEASURED HOLE: `removeAmbientEvaluators()`
  * poisons the four *async* slots only. The synchronous constructors were left
  * untouched, so caller-supplied wasm still compiled AND EXECUTED after
  * `lockdown()` — proven end to end. Whitelisting the async four while the sync

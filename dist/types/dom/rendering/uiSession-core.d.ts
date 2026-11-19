@@ -54,14 +54,20 @@ export namespace uiSessionCore {
         name: string;
         type: string;
         dependencies: string[];
-        deps: {
+        deps: ({
             name: string;
             version: string;
             type: string;
             dependencies: any[];
             factory(): SecPolicyAPI;
-        }[];
-        factory(secPolicy: any): TemplateAPI;
+        } | {
+            name: string;
+            version: string;
+            type: string;
+            dependencies: any[];
+            factory(): StyleSheetAPI;
+        })[];
+        factory(secPolicy: any, styleSheet: any): TemplateAPI;
     })[];
     /** @returns {UiSessionCoreAPI} */
     function factory(template: any, render: any, parser: any, dom: any, events: any): UiSessionCoreAPI;

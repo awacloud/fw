@@ -112,39 +112,27 @@ export type MlDsaInstance = {
         secretKey: Uint8Array;
     } | false);
     /**
-     * Pure ML-DSA sign.
+     * Pure ML-DSA sign (the fw order: key, message).
      */
-    sign: (msg: Uint8Array, secretKey: Uint8Array, ctx?: Uint8Array, rnd?: Uint8Array) => (Uint8Array | false);
+    sign: (secretKey: Uint8Array, msg: Uint8Array, ctx?: Uint8Array, rnd?: Uint8Array) => (Uint8Array | false);
     /**
-     * Pure ML-DSA verify.
+     * Pure ML-DSA verify (the fw order: key, signature, message).
      */
-    verify: (sig: Uint8Array, msg: Uint8Array, publicKey: Uint8Array, ctx?: Uint8Array) => boolean;
+    verify: (publicKey: Uint8Array, sig: Uint8Array, msg: Uint8Array, ctx?: Uint8Array) => boolean;
     /**
      * HashML-DSA sign.
      */
-    signPh: (msg: Uint8Array, secretKey: Uint8Array, hashAlg: string, hashMod: ({
+    signPh: (secretKey: Uint8Array, msg: Uint8Array, hashAlg: string, hashMod: ({
         hash: Function;
         shake?: Function;
     } | Function | null), ctx?: Uint8Array, rnd?: Uint8Array) => (Uint8Array | false);
     /**
      * HashML-DSA verify.
      */
-    verifyPh: (sig: Uint8Array, msg: Uint8Array, publicKey: Uint8Array, hashAlg: string, hashMod: ({
+    verifyPh: (publicKey: Uint8Array, sig: Uint8Array, msg: Uint8Array, hashAlg: string, hashMod: ({
         hash: Function;
         shake?: Function;
     } | Function | null), ctx?: Uint8Array) => boolean;
-    /**
-     * Test-only escape hatches.
-     */
-    _internal: {
-        signInternal: Function;
-        verifyInternal: Function;
-        signWithMu: Function;
-        verifyWithMu: Function;
-        wrapMessage: Function;
-        wrapMessageHash: Function;
-        computePh: Function;
-    };
 };
 /**
  * Public API returned by `ml_dsa.factory()`.
@@ -162,13 +150,5 @@ export type MlDsaAPI = {
      * ML-DSA-87 instance.
      */
     ml_dsa87: MlDsaInstance;
-    /**
-     * Test-only NTT.
-     */
-    _ntt: (f: Int32Array) => Int32Array;
-    /**
-     * Test-only inverse NTT.
-     */
-    _nttInv: (f: Int32Array) => Int32Array;
 };
 //# sourceMappingURL=ml_dsa.d.ts.map

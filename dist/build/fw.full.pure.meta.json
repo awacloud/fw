@@ -32,7 +32,6 @@
     "rsa",
     "slh_dsa",
     "x25519",
-    "aes_ctr",
     "aes_modes",
     "asn1Oid",
     "asn1",
@@ -46,6 +45,7 @@
     "rsaKeygen",
     "totp",
     "uuid",
+    "x509",
     "wasmAes",
     "wasmArgon2",
     "wasmBlake2b",
@@ -77,6 +77,7 @@
     "animate",
     "fullscreen",
     "download",
+    "fileIntake",
     "fsAccess",
     "indexedDB",
     "remoteStore",
@@ -95,6 +96,7 @@
     "events",
     "gesture",
     "media",
+    "sound",
     "chart",
     "component",
     "devtoolsUI",
@@ -104,6 +106,7 @@
     "render",
     "sanitize",
     "secPolicy",
+    "styleSheet",
     "template",
     "themeTokens",
     "uiSessionCore",
@@ -117,9 +120,12 @@
     "sensors",
     "backgroundSync",
     "cache",
+    "installPrompt",
+    "precache",
     "push",
     "serviceWorker",
     "sharedWorker",
+    "swUpdate",
     "a11y",
     "clipboard",
     "entropyCollector",
@@ -212,13 +218,13 @@
   "name": "full",
   "variant": "pure",
   "bytes": {
-    "min": 712164,
-    "minGz": 230526,
-    "dev": 1456264,
-    "devGz": 296078
+    "min": 809745,
+    "minGz": 262163,
+    "dev": 1649604,
+    "devGz": 332758
   },
   "hashSha256": {
-    "min": "2622666f91f73d7cb3dea2cbdd55b2ccba7ee50d680c859575bae0d2953794ac",
-    "dev": "1f1d5ee9e3767585bb760838d769f264c13bd44cf745d3db1dfcba9256048d63"
+    "min": "030851aef9d8fda6b63262afd9542794d1fe9ab25189b8b41d1b985451344402",
+    "dev": "36e87f764b1d2a5b5d3b87704a00ae1d232386561c0d89ef46f9900524769d92"
   }
 }

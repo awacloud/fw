@@ -16,9 +16,11 @@ export namespace lz4 {
  */
 export type Lz4API = {
     /**
-     * - Compress data; returns `[compressed_size, compressed_data]` (`[0, original]` if incompressible, `[-1, original]` on size-limit error). `opts.mode`: 'speed' (default) or 'ratio' (smaller blocks, slower encode); any other value throws a RangeError.
+     * - Compress `src[0, len)` (all of `src` when `len` is omitted or is the options object); returns `[compressed_size, compressed_data]` (`[0, original]` if incompressible, `[-1, original]` on size-limit error). `opts.mode`: 'speed' (default) or 'ratio' (smaller blocks, slower encode); any other value throws a RangeError.
      */
-    compress: (src: Uint8Array, len: number, opts?: {
+    compress: (src: Uint8Array, len?: number | {
+        mode?: "speed" | "ratio";
+    }, opts?: {
         mode?: "speed" | "ratio";
     }) => [number, Uint8Array];
     /**

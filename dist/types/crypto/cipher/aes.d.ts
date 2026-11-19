@@ -36,19 +36,13 @@ export type AesKeyScheduler = (input_key: number[], full?: boolean) => (AesCiphe
  */
 export type AesAPI = {
     /**
-     * Constant-time (masked-lookup) key scheduler — **default**.
+     * Constant-time (bitsliced) key scheduler — **default**.
      */
     fn: AesKeyScheduler;
     /**
      * T-table key scheduler (fast, NOT constant-time, opt-in).
      */
     ttable: {
-        fn: AesKeyScheduler;
-    };
-    /**
-     * Deprecated alias of `fn`.
-     */
-    bitsliced: {
         fn: AesKeyScheduler;
     };
 };

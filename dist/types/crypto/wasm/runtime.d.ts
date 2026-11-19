@@ -61,6 +61,12 @@ export type WasmLoadOptions = {
      */
     variant?: "simd" | "scalar";
     /**
+     * absolute URL of the directory holding the
+     * binaries, for this call (default: the `configure` base, else this module's
+     * directory)
+     */
+    baseUrl?: string | URL;
+    /**
      * injectable byte source (test seam); default fetches the colocated
      * `<wasmModule>.<variant>.wasm` relative to this module.
      */
@@ -95,5 +101,12 @@ export type WasmRuntimeAPI = {
      *   caller's try/catch (the per-algo wrapper's no-throw boundary).
      */
     run: (loaded: WasmLoaded, fnName: string, args: number[]) => number;
+    /**
+     *   Set the asset base every later `load` uses (`null` restores this module's
+     *   directory). Throws `TypeError` when the base is not an absolute URL.
+     */
+    configure: (opts: {
+        baseUrl: string | URL | null;
+    }) => void;
 };
 //# sourceMappingURL=runtime.d.ts.map
